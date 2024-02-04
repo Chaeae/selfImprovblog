@@ -23,10 +23,29 @@ repositories {
 }
 
 dependencies {
+    // Spring Boot 및 웹 관련 의존성 추가
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper' // 내장 Tomcat 및 JSP 관련 의존성
+
+    // JSP 관련 의존성 추가
+    implementation 'jakarta.servlet:jakarta.servlet-api'
+    implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api'
+    implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl'
+
+    // MyBatis 관련 의존성 추가
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
+
+    // Lombok 관련 의존성 추가
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+
+    // MySQL 관련 의존성 추가
+    runtimeOnly 'mysql:mysql-connector-java:8.0.33'
+
+    // Spring Boot 내장 Tomcat 관련 의존성 추가
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+
+    // 개발용 의존성 추가 (Spring Boot 테스트 관련)
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 

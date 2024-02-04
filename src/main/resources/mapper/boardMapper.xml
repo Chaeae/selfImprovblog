@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Board">
+    <insert id="save" parameterType="board">
+        insert into posting_table(post_author,post_title, post_categoryId, post_contents )
+        values(#{post_author}, #{post_title}, #{post_categoryId}, #{post_contents})
+    </insert>
+    <select id="findAll" resultType="board">
+        select * from posting_table order by post_id desc
+    </select>
+    <select id="findById" parameterType="Long" resultType="board">
+        select * from posting_table where post_id=#{post_id}
+    </select>
+    <update id="updateHits" parameterType="Long">
+        update posting_table set post_viewNum = post_viewNum + 1 where post_id=#{post_id}
+    </update>
+    <delete id="delete" parameterType="Long">
+        delete from posting_table where post_id=#{post_id}
+    </delete>
+    <update id="update" parameterType="board">
+        update posting_table set post_title=#{post_title}, post_contents=#{post_contents}
+        where post_id=#{post_id}
+    </update>
+    <select id="pagingList" parameterType="java.util.HashMap" resultType="board">
+        select * from posting_table order by post_id desc limit #{start}, #{limit}
+    </select>
+    <select id="boardCount" resultType="Integer">
+        select count(post_id) from posting_table
+    </select>
+</mapper>
