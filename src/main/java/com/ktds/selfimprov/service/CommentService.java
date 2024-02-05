@@ -26,4 +26,6 @@ public class CommentService {
     }
 
     public void updateComment(CommentDTO commentDTO) { commentRepository.updateComment(commentDTO); }
+
+    public void delete(Long cmm_CommentId) { commentRepository.delete(cmm_CommentId);}
 }

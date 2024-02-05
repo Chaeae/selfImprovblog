@@ -27,4 +27,7 @@ public class CommentRepository {
 
     public void updateComment(CommentDTO commentDTO) { sql.update("Comment.updateComment", commentDTO);
     }
+
+    public void delete(Long cmm_commentId) {sql.delete("Comment.deleteComment", cmm_commentId);
+    }
 }
