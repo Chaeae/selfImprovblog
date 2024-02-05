@@ -42,7 +42,7 @@ public class BoardController {
     @GetMapping("/")
     public String findAll(Model model) {
         List<BoardDTO> boardDTOList = boardService.findAll();
-        model.addAttribute("boardList", boardDTOList);
+        model.addAttribute("boardList", boardDTOList);//"boardList"라는 이름으로 위에서 생성한 boardDTOList를 model에 담아서 전송하겠다
         return "list";
     }
 
@@ -52,7 +52,7 @@ public class BoardController {
                            Model model) {
         boardService.updateHits(post_id);
         BoardDTO boardDTO = boardService.findById(post_id);
-        model.addAttribute("board", boardDTO);
+        model.addAttribute("board", boardDTO);//"board"라는 이름으로 위에서 생성한 boardDTO를 model에 담아서 전송하겠다0000000000
         model.addAttribute("page", page);
         List<CommentDTO> commentDTOList = commentService.findAll(post_id);
         model.addAttribute("commentList", commentDTOList);
@@ -71,6 +71,7 @@ public class BoardController {
         BoardDTO boardDTO = boardService.findById(post_id);
         System.out.println(boardDTO);
         model.addAttribute("board", boardDTO);
+
         return "update";
     }
 

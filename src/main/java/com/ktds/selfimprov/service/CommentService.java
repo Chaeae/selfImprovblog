@@ -1,5 +1,6 @@
 package com.ktds.selfimprov.service;
 
+import com.ktds.selfimprov.dto.BoardDTO;
 import com.ktds.selfimprov.dto.CommentDTO;
 import com.ktds.selfimprov.repository.CommentRepository;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +17,13 @@ public class CommentService {
         commentRepository.save(commentDTO);
     }
 
-    public List<CommentDTO> findAll(Long post_id) {
-        return commentRepository.findAll(post_id);
+    public List<CommentDTO> findAll(Long cmm_postId) {
+        return commentRepository.findAll(cmm_postId);
     }
+
+    public CommentDTO findById(Long cmm_postId) {
+        return commentRepository.findById(cmm_postId);
+    }
+
+    public void updateComment(CommentDTO commentDTO) { commentRepository.updateComment(commentDTO); }
 }

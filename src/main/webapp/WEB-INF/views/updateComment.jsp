@@ -45,7 +45,7 @@
     <input type="text" id="cmm_text" placeholder="내용">
     <button id="comment-write-btn" onclick="commentWrite()">댓글작성</button>
     <button id="comment-update-btn" onclick="commentUpdate()">댓글수정</button>
-<%--    <button id="comment-delte-btn" onclick="commentDelete()">댓글삭제</button>--%>
+    <button id="comment-delte-btn" onclick="commentDelete()">댓글삭제</button>
 </div>
 
 <div id="comment-list">
@@ -56,7 +56,7 @@
             <th>내용</th>
             <th>작성시간</th>
         </tr>
-        <c:forEach var="comment" items="${commentList}">
+        <c:forEach items="${commentList}" var="comment">
             <tr>
                 <td>${comment.cmm_commentId}</td>
                 <td>${comment.cmm_writer}</td>
@@ -118,53 +118,7 @@
             error: function() {
                 console.log("실패");
             }
-        }
-    );
-    }
-    //document.getElementById란 html 전체를 돔이라고 하는데 거기서 element를 가져온다라는 의미
-
-    const commentUpdate = () => {
-        <%--const post_id = '${board.post_id}';--%>
-        // location.href = "/board/updateComment?id=" + post_id + "&cmm_commentId=" + cmm_commentId;
-
-        const writer = document.getElementById("cmm_writer").value;
-        const text = document.getElementById("cmm_text").value;
-        const postId = '${board.post_id}';
-        $.ajax({
-                type: "post",
-                url: "/comment/updateComment",
-                data: {
-                    cmm_writer: writer,
-                    cmm_text: text,
-                    cmm_postId: postId
-                },
-                dataType: "json",
-                success: function(commentList) {
-                    console.log("작성성공");
-                    console.log(commentList);
-                    let output = "<table>";
-                    output += "<tr><th>댓글번호</th>";
-                    output += "<th>작성자</th>";
-                    output += "<th>내용</th>";
-                    output += "<th>작성시간</th></tr>";
-                    for(let i in commentList){
-                        output += "<tr>";
-                        output += "<td>"+commentList[i].cmm_commentId+"</td>";
-                        output += "<td>"+commentList[i].cmm_writer+"</td>";
-                        output += "<td>"+commentList[i].cmm_text+"</td>";
-                        output += "<td>"+commentList[i].cmm_commentDate+"</td>";
-                        output += "</tr>";
-                    }
-                    output += "</table>";
-                    document.getElementById('comment-list').innerHTML = output;
-                    document.getElementById('cmm_writer').value='';
-                    document.getElementById('cmm_text').value='';
-                },
-                error: function() {
-                    console.log("실패");
-                }
-            }
-        );
+        });
     }
 </script>
 </html>
