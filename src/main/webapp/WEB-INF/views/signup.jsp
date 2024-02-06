@@ -15,7 +15,7 @@
 <body>
 <h1>SignUp</h1>
 <form action="/user/signup" method="post" >
-    <input type="text" name="userID" placeholder="Id">
+    <input type="text" name="user_ID" placeholder="Id">
     <br>
     <input type="text" name="user_pw" placeholder="Password">
     <br>

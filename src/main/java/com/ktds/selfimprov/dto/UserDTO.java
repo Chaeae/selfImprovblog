@@ -15,5 +15,5 @@ public class UserDTO {
     private String user_age;
     private String user_job;
     private String user_email;
-    private int user_hits;
+    //private int user_hits;
 }
