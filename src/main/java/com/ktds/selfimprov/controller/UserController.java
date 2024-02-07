@@ -33,27 +33,12 @@ public class UserController {
         System.out.println("dupliResult = " + dupliResult);
         if (dupliResult == null){ //중복 아이디 없으면
             int saveResult = userService.signup(userDTO); //save
-            return "redirect:/user/login";
+            return "redirect:/user/signup";
         }
         else{
             return "signup";
         }
     }
-
-//    @GetMapping
-//    public String findById(@RequestParam("id") Long user_pk,
-//                           @RequestParam(value = "page", required = false, defaultValue = "1") int page,
-//                           Model model) {
-//        UserDTO userDTO = userService.findById(user_pk);
-//        model.addAttribute("userDTO", userDTO);
-//        return "login";
-//    }
-
-//    @GetMapping("/login")
-//    public String loginForm() {
-//        return "login";
-//    }
-//
 
     @GetMapping("/login")
     public String longinForm() {
@@ -81,23 +66,6 @@ public class UserController {
             return "login";
         }
 
-
     }
-
-//    @PostMapping("/login")
-//    public String login(@ModelAttribute UserDTO userDTO, Model model) {
-//        System.out.println("UserDTO = " + userDTO);
-//        UserDTO newUserDTO = userService.findById(userDTO.getUser_ID());
-//        if (newUserDTO != null){
-//            return "redirect:/list";
-//        }
-//        else{
-//            //model.addAttribute("user", newUserDTO);
-//
-//            System.out.println("UserDTO = " + newUserDTO);
-//            return "login"; //Id가 DB에 없을때
-//        }
-//    }
-
 
 }
