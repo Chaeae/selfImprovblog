@@ -19,101 +19,168 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <div class="wrap">
-        <div class="intro_bg">
-            <div class ="header">
-                <div id="logo">
-                    <img src="/resources/image/improvLogo.png" width="81px" height="86px">
-                </div>
-<%--                <div class="searchArea">--%>
-<%--                    <form>--%>
-<%--                        <input type="search" placeholder="Search">--%>
-<%--&lt;%&ndash;                        <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">&ndash;%&gt;--%>
-<%--                        <span>검색</span>--%>
-<%--                    </form>--%>
-<%--                </div>--%>
-                <ul class="upperNav">
-                    <li><a href="#">인문학</a></li>
-                    <li><a href="#">철학</a></li>
-                    <li><a href="#">IT</a></li>
-                    <li><a href="#">언어</a></li>
-                </ul>
-
-            </div>
-        </div>
-    </div>
-
-    <nav class="sidebar">
-        <header>
-
-        </header>
-
-        <div class="menu-bar">
-            <div class="menu">
-                <div class="circle">
-                    <img class="profile" src="/resources/image/profileImg.jpg" alt="profile">
-                </div>
-                <div class="confirm">
-                    chaeae 님 안녕하세요
-                </div>
-                <ul class="menu-links">
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-home icon'></i>
-                            <span class="text nav-text">마이 홈</span>
-                        </a>
-                    </li>
-                </ul>
-                <ul class="menu-links">
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-edit-alt icon'></i>
-                            <span class="text nav-text">새 글 작성</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="bottom-content">
-                <li class="">
-                    <a href="#">
-                        <i class='bx bx-log-out icon'></i>
-                        <span class="text nav-text">로그아웃</span>
-                    </a>
-                </li>
-            </div>
-
-        </div>
-
-    </nav>
-    <div>
-        <div class="box">
-            <li class ="contentSearch">
-                <i class='bx bx-search iconSearch'></i>
-                    <input type="search" placeholder="Search">
-            </li>
-            <li class ="contentBox">
-                <span>
-                    <img class="boardImg" src="/resources/image/profileImg.jpg" alt="">
-                </span>
-                <span>
-                    <h1 class="heading">HELLO WORLD!</h1>
-                    <div class="data">
-                        <span class="date">2024-02-11</span>
-                        <span class="user-id">user ID</span>
+    <div id="totalWrapper">
+        <div class="wrap">
+            <div class="intro_bg">
+                <div class ="header">
+                    <div id="logo">
+                        <img src="/resources/image/improvLogo.png" width="81px" height="86px">
                     </div>
-                    <p class="texts">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </p>
-                </span>
+                    <%--                <div class="searchArea">--%>
+                    <%--                    <form>--%>
+                    <%--                        <input type="search" placeholder="Search">--%>
+                    <%--&lt;%&ndash;                        <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">&ndash;%&gt;--%>
+                    <%--                        <span>검색</span>--%>
+                    <%--                    </form>--%>
+                    <%--                </div>--%>
+                    <ul class="upperNav">
+                        <li><a href="#">인문학</a></li>
+                        <li><a href="#">철학</a></li>
+                        <li><a href="#">IT</a></li>
+                        <li><a href="#">언어</a></li>
+                    </ul>
 
-            </li>
+                </div>
+            </div>
+        </div>
+
+        <nav class="sidebar">
+            <header>
+
+            </header>
+
+            <div class="menu-bar">
+                <div class="menu">
+                    <div class="circle">
+                        <img class="profile" src="/resources/image/profileImg.jpg" alt="profile">
+                    </div>
+                    <div class="confirm">
+                        chaeae 님 안녕하세요
+                    </div>
+                    <ul class="menu-links">
+                        <li class="nav-link">
+                            <a href="#">
+                                <i class='bx bx-home icon'></i>
+                                <span class="text nav-text">마이 홈</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="menu-links">
+                        <li class="nav-link">
+                            <a href="#">
+                                <i class='bx bx-edit-alt icon'></i>
+                                <span class="text nav-text">새 글 작성</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bottom-content">
+                    <li class="">
+                        <a href="#">
+                            <i class='bx bx-log-out icon'></i>
+                            <span class="text nav-text">로그아웃</span>
+                        </a>
+                    </li>
+                </div>
+
+            </div>
+
+        </nav>
+        <div>
+            <div class="box">
+                <li class ="contentSearch">
+                    <i class='bx bx-search iconSearch'></i>
+                    <input type="search" placeholder="Search">
+                </li>
+                <div class="container">
+                    <div class="ele">
+                        <a href="#">
+                            <div class ="contentBox">
+                                <div class="subbox1">
+                                    <img class="boardImg" src="/resources/image/profileImg.jpg" alt="">
+                                </div>
+                                <div class="subbox2">
+                                    <p class="writerID">post_author</p>
+                                    <%--                    ${board.post_author}--%>
+                                    <br>
+                                    <h2 class="heading">HELLO WORLD! 제목이 냅다길어지면 줄바꿈해주는지 이거도 설정해야되는지 알아보기 여기서 더길어진다면?</h2>
+                                    <br>
+                                    <p class="texts" >
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 만약에 문장이 엄청 ㅇ길어지면 이거 넘어가는지 테스트akdjlfjsljdlfjsljflksdfkskjflsjlfskdfjksjlfkajldkfj;slfiowlkdflksjfoiwejfjlejfd 여기서 더길어지면 세줄 넘는데 이게 되는지 한번 테스트 해보기 이정도면 됐으려나 마지막한번더 한줄
+                                    </p>
+                                    <a href="#">더보기</a>
+                                    <div class="data">
+                                        <span class="hits">조회수:</span>
+                                        <span class="likes">좋아요</span>
+                                        <span class="date">2024-02-11</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </a>
+                    </div>
+                    <div class="ele">
+                        <div class ="contentBox">
+                            <div class="subbox1">
+                                <img class="boardImg" src="/resources/image/profileImg.jpg" alt="">
+                            </div>
+                            <div class="subbox2">
+                                <p class="writerID">post_author</p>
+                                <%--                    ${board.post_author}--%>
+                                <br>
+                                <h2 class="heading">HELLO WORLD!</h2>
+                                <br>
+                                <p class="texts">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 만약에 문장이 엄청 ㅇ길어지면 이거 넘어가는지 테스트a
+                                </p>
+                                <a href="#">더보기</a>
+                                <div class="data">
+                                    <span class="hits">조회수:</span>
+                                    <span class="likes">좋아요</span>
+                                    <span class="date">2024-02-11</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="ele">
+                        <div class ="contentBox">
+                            <div class="subbox1">
+                                <img class="boardImg" src="/resources/image/profileImg.jpg" alt="">
+                            </div>
+                            <div class="subbox2">
+                                <p class="writerID">post_author</p>
+                                <%--                    ${board.post_author}--%>
+                                <br>
+                                <h2 class="heading">HELLO WORLD! 제목이 여기까지 아마</h2>
+                                <br>
+                                <p class="texts" >
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 만약에 문장이 엄청 ㅇ길어지 테스트 해보기 이정도면 됐으려나 마지막한번더 한줄
+                                </p>
+                                <a href="#">더보기</a>
+                                <div class="data">
+                                    <span class="hits">조회수:</span>
+                                    <span class="likes">좋아요</span>
+                                    <span class="date">2024-02-11</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
 
 
 
+
+
+
+
+
+            </div>
         </div>
     </div>
-    <input type="input" class="bubble-element Input a1707626588944x4477" placeholder="Popular" maxlength="">
+    <footer></footer>
 
 </body>
 </html>
