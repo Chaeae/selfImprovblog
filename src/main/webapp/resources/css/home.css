@@ -1,0 +1,341 @@
+*{
+    font-family: 'Noto Sans KR', sans-serif;
+    list-style: none;
+    text-decoration: none;
+    border-collapse: collapse;
+    margin:0px;
+    padding: 0px;
+    color:#000000;
+}
+
+/*.intro_bg{*/
+/*    background-image: url("image/self_improv.jpg");*/
+/*    width: 100%;*/
+/*    height:718px;*/
+/*}*/
+:root{
+    --body-color: #FFF;
+    --sidebar-color: white;
+    --primary-color: #695CFE;
+    --primary-color-light: #F6F5FF;
+    --toggle-color: #DDD;
+    --text-color: #707070;
+
+    --tran-02: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.4s ease;
+    --tran-05: all 0.5s ease;
+
+}
+body{
+    height: 100vh;
+    background: var(--body-color);
+
+}
+
+.header{
+    display: flex;
+    width:100%;
+    height: 86px;
+}
+#logo{
+    float:left;
+    width:81px;
+    height:86px;
+    padding-left: 10px;
+}
+/*.searchArea{*/
+/*    width: 300px;*/
+/*    height: 40px;*/
+/*    margin: auto;*/
+/*    background: white;*/
+/*    opacity: 0.5;*/
+/*    border-radius: 5px;*/
+/*    margin-top: 24px;*/
+/*}*/
+/*.searchArea>form>input{*/
+/*    border:none;*/
+/*    width: 250px;*/
+/*    height: 40px;*/
+/*    background: white;*/
+/*    opacity: 0.5;*/
+/*    color: black;*/
+/*    padding-left: 10px;*/
+/*}*/
+/*.searchArea>form>span{*/
+/*    width:50px;*/
+/*    color:black;*/
+/*    font-weight: bold;*/
+/*    cursor: pointer;*/
+/*}*/
+.upperNav{
+    display: flex;
+    justify-content: center;
+    line-height: 86px;
+    width:calc(1280px - 300px);
+}
+
+.upperNav>li {
+    margin-left:84px;
+}
+
+.upperNav>li>a{
+    color: black;
+}
+
+
+/*=======sidebar======*/
+.sidebar{
+    position: fixed;
+    top: 0;
+    left:0;
+    width: 250px;
+    height: 100%;
+    background: var(--sidebar-color);
+
+}
+/*=====reusable CSS=======*/
+.sidebar .text{
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+.sidebar .image{
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar li{
+    height: 50px;
+    margin-top: 10px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar li .icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    font-size: 20px;
+}
+
+.sidebar li .icon,
+.sidebar li .text{
+    color: var(--text-color);
+    transition: var(--tran-02);
+}
+
+.sidebar li a{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: var(--tran-04);
+}
+
+.sidebar li a:hover{
+    background: var(--primary-color);
+}
+
+.sidebar li a:hover icon,
+.sidebar li a:hover text{
+    color: var(--sidebar-color);
+}
+
+.sidebar .menu-bar{
+    height:calc(100% - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar .menu-bar .circle{
+    width: 150px;
+    height: 150px;
+    border-radius: 70%;
+    overflow: hidden;
+    display: block;
+    margin: auto;
+    margin-top: 100px;
+
+}
+
+.sidebar .menu-bar .circle .profile{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    margin: auto;
+}
+
+.sidebar .menu-bar .confirm{
+    color: black;
+    text-align: center;
+    padding: 5px;
+}
+
+/*section{*/
+/*    border: 3px solid#00BFFF;*/
+/*    margin-left: 250px;*/
+/*}*/
+
+/*.contentBox {*/
+/*    position: absolute;*/
+/*    width: 881px;*/
+/*    height: 219px;*/
+/*    left: 422px;*/
+/*    top: 256px;*/
+
+/*    background: #D9D9D9;*/
+/*    border-radius: 10px;*/
+/*}*/
+
+/*.contentBox .boardImg{*/
+/*    position: absolute;*/
+/*    width: 229px;*/
+/*    height: 187px;*/
+/*    left: 436px;*/
+/*    top: 272px;*/
+
+/*    background: #FFFFFF;*/
+/*    border-radius: 10px;*/
+/*}*/
+
+/*!* 제목 *!*/
+/*.contentBox .heading{*/
+/*    position: absolute;*/
+/*    width: 119px;*/
+/*    height: 32px;*/
+/*    left: 694px;*/
+/*    top: 304px;*/
+
+/*    font-family: 'Inter';*/
+/*    font-style: normal;*/
+/*    font-weight: 600;*/
+/*    font-size: 32px;*/
+/*    line-height: 39px;*/
+
+/*    color: #000000;*/
+/*}*/
+
+/*.contentBox .texts{*/
+/*    position: absolute;*/
+/*    width: 591px;*/
+/*    height: 84px;*/
+/*    left: 694px;*/
+/*    top: 350px;*/
+
+/*    font-family: 'Inter';*/
+/*    font-style: normal;*/
+/*    font-weight: 300;*/
+/*    font-size: 24px;*/
+/*    line-height: 29px;*/
+
+/*    color: #000000;*/
+
+/*}*/
+
+/*.contentBox .data .date{*/
+/*    position: absolute;*/
+/*    width: 167px;*/
+/*    height: 36px;*/
+/*    left: 688px;*/
+/*    top: 272px;*/
+
+/*    font-family: 'Inter';*/
+/*    font-style: normal;*/
+/*    font-weight: 300;*/
+/*    font-size: 16px;*/
+/*    line-height: 19px;*/
+
+/*    color: #524F4F;*/
+/*}*/
+
+/*.contentBox .data .user-id{*/
+/*    position: absolute;*/
+/*    width: 167px;*/
+/*    height: 36px;*/
+/*    left: 1185px;*/
+/*    top: 272px;*/
+
+/*    font-family: 'Inter';*/
+/*    font-style: normal;*/
+/*    font-weight: 300;*/
+/*    font-size: 16px;*/
+/*    line-height: 19px;*/
+
+/*    color: #524F4F;*/
+/*}*/
+
+.box{
+    /*border: 3px solid#00BFFF;*/
+    margin-left: 250px;
+}
+.box li{
+    height: 50px;
+    margin-top: 50px;
+    list-style: none;
+    display: block;
+}
+.box .contentSearch {
+    display: flex;
+    align-items: center;/*세로로 가운데*/
+    justify-content: flex-start;/*가로로 왼쪽*/
+    font-size: 40px;
+    min-width: 60px;
+    border-bottom: solid 3px black;
+    margin-right: 150px;
+    margin-left: 150px;
+}
+
+.box li .iconSearch{
+    font-size: 40px;
+}
+
+.box li input{
+    height:100%;
+    width: 100%;
+    outline: none;
+    border: none;
+}
+
+
+/*!* 조회: 6 *!*/
+
+/*position: absolute;*/
+/*width: 48px;*/
+/*height: 35px;*/
+/*left: 1166px;*/
+/*top: 442px;*/
+
+/*font-family: 'Inter';*/
+/*font-style: normal;*/
+/*font-weight: 300;*/
+/*font-size: 16px;*/
+/*line-height: 19px;*/
+
+/*color: #524F4F;*/
+
+
+
+/*!* 좋아요: 3 *!*/
+
+/*position: absolute;*/
+/*width: 96px;*/
+/*height: 35px;*/
+/*left: 1228px;*/
+/*top: 442px;*/
+
+/*font-family: 'Inter';*/
+/*font-style: normal;*/
+/*font-weight: 300;*/
+/*font-size: 16px;*/
+/*line-height: 19px;*/
+
+/*color: #524F4F;*/
+

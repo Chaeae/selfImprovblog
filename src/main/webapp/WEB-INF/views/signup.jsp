@@ -16,28 +16,28 @@
     <div class="row">
         <!-- SIGN UP -->
         <div class="col align-items-center flex-col sign-up">
-            <form action="/user/signup" method="post" >
+            <form action="/user/signup" id="sign" method="post" >
                 <div class="form-wrapper align-items-center">
                     <div class="form sign-up">
                         <div class="input-group">
                             <i class='bx bxs-user_ID'></i>
-                            <input type="text" name="user_ID" placeholder="Id">
+                            <input type="text" name="user_ID" id="signup_user_ID" placeholder="Id">
                         </div>
                         <div class="input-group">
                             <i class='bx bxs-lock-alt'></i>
-                            <input type="password" name="user_pw" placeholder="Password">
+                            <input type="password" name="user_pw" id="signup_user_pw" placeholder="Password">
                         </div>
                         <div class="input-group">
                             <i class='bx bxs-user'></i>
-                            <input type="text" name="user_name" placeholder="Username">
+                            <input type="text" name="user_name" id="signup_user_name" placeholder="Username">
                         </div>
                         <div class="input-group">
                             <i class='bx bxs-user_Age'></i>
-                            <input type="text" name="user_age" placeholder="Age">
+                            <input type="text" name="user_age" id="signup_user_age" placeholder="Age">
                         </div>
                         <div class="input-group">
                             <i class='bx bxs-user_Job'></i>
-                            <input type="text" name="user_job" placeholder="Job">
+                            <input type="text" name="user_job" id="signup_user_job" placeholder="Job">
                         </div>
                         <div class="input-group">
                             <i class='bx bx-mail-send'></i>
@@ -66,12 +66,12 @@
                     <div class="form sign-in">
                         <div class="input-group">
                             <i class='bx bxs-user'></i>
-                            <input type="text" name="user_ID" id="user_ID" placeholder="Id">
+                            <input type="text" name="user_ID" id="login_user_ID" placeholder="Id">
                         </div>
                         <div class="input-group">
                             <i class='bx bxs-lock-alt'></i>
                             <%--                        <input type="text" name="user_pw" placeholder="Password">--%>
-                            <input type="password" name="user_pw" id ="user_pw" placeholder="Password">
+                            <input type="password" name="user_pw" id ="login_user_pw" placeholder="Password">
                         </div>
                         <button type="submit">
                             Log in
@@ -136,8 +136,8 @@
 <script>
     let sf = document.getElementById("log");
     sf.addEventListener("submit",function(e){
-        let eleId = document.getElementById("user_ID");
-        let elePw = document.getElementById("user_pw");
+        let eleId = document.getElementById("login_user_ID");
+        let elePw = document.getElementById("login_user_pw");
 
         if(eleId.value.length == 0){
             alert("아이디를 입력하세요");
@@ -149,4 +149,37 @@
         }
     });
 
+</script>
+
+<script>
+    let sf2 = document.getElementById("sign");
+    sf2.addEventListener("submit",function(e){
+        let eleId = document.getElementById("signup_user_ID");
+        let elePw = document.getElementById("signup_user_pw");
+        let eleName = document.getElementById("signup_user_name");
+        let eleAge = document.getElementById("signup_user_age");
+        let eleJob = document.getElementById("signup_user_job");
+
+        if(eleId.value.length == 0){
+            alert("아이디를 입력하세요");
+            e.preventDefault();
+        }
+        else if(elePw.value.length == 0){
+            alert("비밀번호를 입력하세요");
+            e.preventDefault();
+        }
+        else if(eleName.value.length == 0){
+            alert("이름을 입력하세요");
+            e.preventDefault();
+        }
+        else if(eleAge.value.length == 0){
+            alert("나이를 입력하세요");
+            e.preventDefault();
+        }
+        else if(eleJob.value.length == 0){
+            alert("직업을 입력하세요");
+            e.preventDefault();
+        }
+
+    });
 </script>
