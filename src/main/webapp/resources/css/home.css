@@ -44,30 +44,7 @@ body{
     height:86px;
     padding-left: 10px;
 }
-/*.searchArea{*/
-/*    width: 300px;*/
-/*    height: 40px;*/
-/*    margin: auto;*/
-/*    background: white;*/
-/*    opacity: 0.5;*/
-/*    border-radius: 5px;*/
-/*    margin-top: 24px;*/
-/*}*/
-/*.searchArea>form>input{*/
-/*    border:none;*/
-/*    width: 250px;*/
-/*    height: 40px;*/
-/*    background: white;*/
-/*    opacity: 0.5;*/
-/*    color: black;*/
-/*    padding-left: 10px;*/
-/*}*/
-/*.searchArea>form>span{*/
-/*    width:50px;*/
-/*    color:black;*/
-/*    font-weight: bold;*/
-/*    cursor: pointer;*/
-/*}*/
+
 .upperNav{
     display: flex;
     justify-content: center;
@@ -91,6 +68,7 @@ body{
     left:0;
     width: 250px;
     height: 100%;
+    padding:10px 14px;
     background: var(--sidebar-color);
 
 }
@@ -100,12 +78,34 @@ body{
     font-weight: 500;
     color: var(--text-color);
 }
-.sidebar .image{
+
+.sidebar .imageHome{
     min-width: 60px;
     display: flex;
     align-items: center;
 }
 
+.sidebar .image-text img{
+    width: 60px;
+    border-radius: 6px;
+}
+
+.sidebar header .image-text{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.sidebar .image-text .header-text{
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+}
+
+header .image-text .header-text .Blog{
+    margin-top: -2px;
+}
 .sidebar li{
     height: 50px;
     margin-top: 10px;
@@ -220,8 +220,10 @@ body{
     height: 234px;
     margin-left: 175px;
     margin-top: 50px;
-
-    background: #D9D9D9;
+    /*background: #E39A75;*/
+    /*background: #DFD7C2;*/
+    background-color: rgba(223,215,194,0.5);
+    /*background: #D8E0B7;*/
     border-radius: 10px;
     cursor: pointer;
 }
@@ -262,9 +264,22 @@ body{
     margin: 5px;
 }
 
+.contentBox .subbox2 .date{
+    position: absolute;
+    right:10px;
+    top: 10px;
+    color: #595959;
+    /*float: right;*/
+    /*margin-right: 5px;*/
+}
+
 .contentBox .subbox2 .writerID{
-    float: right;
-    margin-right: 5px;
+    position: absolute;
+    left:10px;
+    top: 10px;
+    color: #595959;
+    /*float: right;*/
+    /*margin-right: 5px;*/
 }
 
 .contentBox .subbox2 .heading{
@@ -298,8 +313,14 @@ body{
 
 .contentBox .subbox2 .data{
     position: absolute;
-    right:5px;
-    bottom: 5px;
+    right:10px;
+    bottom: 10px;
+    color: #595959;
+}
+
+.contentBox .subbox2 .data .iconHits{
+    font-size: 20px;
+    color: #595959;
 }
 
 #totalWrapper{

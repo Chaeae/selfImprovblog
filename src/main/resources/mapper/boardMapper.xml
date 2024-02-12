@@ -4,8 +4,8 @@
 
 <mapper namespace="Board">
     <insert id="save" parameterType="board">
-        insert into posting_table(post_author,post_title, post_categoryId, post_contents )
-        values(#{post_author}, #{post_title}, #{post_categoryId}, #{post_contents})
+        insert into posting_table(post_author, post_categoryId,post_title, post_contents )
+        values(#{post_author}, #{post_categoryId}, #{post_title}, #{post_contents})
     </insert>
     <select id="findAll" resultType="board">
         select * from posting_table order by post_id desc

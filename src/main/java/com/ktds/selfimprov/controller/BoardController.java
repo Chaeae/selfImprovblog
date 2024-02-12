@@ -41,6 +41,7 @@ public class BoardController {
 
     @GetMapping("/")
     public String findAll(Model model) {
+        System.out.println("homeFindAll진입");
         List<BoardDTO> boardDTOList = boardService.findAll();
         model.addAttribute("boardList", boardDTOList);//"boardList"라는 이름으로 위에서 생성한 boardDTOList를 model에 담아서 전송하겠다
         return "list";
@@ -91,5 +92,13 @@ public class BoardController {
         model.addAttribute("boardList", boardList);
         model.addAttribute("paging", pageDTO);
         return "paging";
+    }
+
+    @GetMapping("/home/")
+    public String homeFindAll(Model model) {
+        System.out.println("homeFindAll진입");
+        List<BoardDTO> boardDTOList = boardService.findAll();
+        model.addAttribute("boardList", boardDTOList);//"boardList"라는 이름으로 위에서 생성한 boardDTOList를 model에 담아서 전송하겠다
+        return "home";
     }
 }
