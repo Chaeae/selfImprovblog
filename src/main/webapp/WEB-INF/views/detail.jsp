@@ -1,5 +1,30 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page import="java.sql.*" %>
+
+<%
+    String userId = null; // 사용자 ID를 저장할 변수
+    Integer userPk = null;
+    Cookie[] cookies = request.getCookies(); // 요청으로부터 쿠키 배열 가져오기
+    if (cookies != null) {
+        for (Cookie cookie : cookies) {
+            if ("user_ID".equals(cookie.getName())) {
+                userId = cookie.getValue(); // user_ID 쿠키의 값을 찾아 변수에 저장
+                request.setAttribute("userId", userId);
+            }
+            else if ("user_pk".equals(cookie.getName())) {
+                userPk = Integer.parseInt(cookie.getValue()); // user_ID 쿠키의 값을 찾아 변수에 저장
+                request.setAttribute("userPk", userPk);
+            }
+        }
+    }
+    else{
+        response.sendRedirect("login.jsp"); // 로그인 페이지로 리다이렉션
+        return;
+    }
+%>
+
 <html>
 <head>
     <title>detail.jsp</title>
@@ -37,15 +62,19 @@
     </tr>
 </table>
 <button onclick="listFn()">목록</button>
-<button onclick="updateFn()">수정</button>
-<button onclick="deleteFn()">삭제</button>
+<%--<button onclick="updateFn()">수정</button>--%>
+<%--<button onclick="deleteFn()">삭제</button>--%> <!-- 현재 로그인한 사용자가 글 작성자와 동일한 경우에만 수정 및 삭제 버튼 표시 -->
+<c:if test="${board.post_author == userPk}">
+    <button onclick="location.href='/board/update?id=${board.post_id}'">수정</button>
+    <button onclick="location.href='/board/delete?id=${board.post_id}'">삭제</button>
+</c:if>
 
 <div>
     <input type="text" id="cmm_writer" placeholder="작성자">
     <input type="text" id="cmm_text" placeholder="내용">
     <button id="comment-write-btn" onclick="commentWrite()">댓글작성</button>
-    <button id="comment-update-btn" onclick="commentUpdate()">댓글수정</button>
-    <button id="comment-delte-btn" onclick="commentDelete()">댓글삭제</button>
+<%--    <button id="comment-update-btn" onclick="commentUpdate()">댓글수정</button>--%>
+<%--    <button id="comment-delte-btn" onclick="commentDelete()">댓글삭제</button>--%>
 </div>
 
 <div id="comment-list">
@@ -62,8 +91,16 @@
                 <td>${comment.cmm_writer}</td>
                 <td>${comment.cmm_text}</td>
                 <td>${comment.cmm_commentDate}</td>
+                <td>
+                    <c:if test="${comment.cmm_userId == userPk}">
+                        <!-- 현재 로그인한 사용자가 댓글 작성자와 동일한 경우에만 버튼 표시 -->
+                        <button onclick="updateComment(${comment.cmm_commentId})">수정</button>
+                        <button onclick="deleteComment(${comment.cmm_commentId})">삭제</button>
+                    </c:if>
+                </td>
             </tr>
         </c:forEach>
+
     </table>
 </div>
 </body>
@@ -72,14 +109,14 @@
         const page = '${page}';
         location.href = "/board/paging?page=" + page;
     }
-    const updateFn = () => {
-        const post_id = '${board.post_id}'; //그래서 여기서 board.~~로 쓸 수 있음0000000000
-        location.href = "/board/update?id=" + post_id; //location: 전환할 페이지 주소
-    }
-    const deleteFn = () => {
-        const post_id = '${board.post_id}';
-        location.href = "/board/delete?id=" + post_id;
-    }
+    <%--const updateFn = () => {--%>
+    <%--    const post_id = '${board.post_id}'; //그래서 여기서 board.~~로 쓸 수 있음0000000000--%>
+    <%--    location.href = "/board/update?id=" + post_id; //location: 전환할 페이지 주소--%>
+    <%--}--%>
+    <%--const deleteFn = () => {--%>
+    <%--    const post_id = '${board.post_id}';--%>
+    <%--    location.href = "/board/delete?id=" + post_id;--%>
+    <%--}--%>
 
     const commentWrite = () => {
         const writer = document.getElementById("cmm_writer").value;
