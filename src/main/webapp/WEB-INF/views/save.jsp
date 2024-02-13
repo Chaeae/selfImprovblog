@@ -5,38 +5,196 @@
 <%@ page import="java.sql.*" %>
 
 <%
-    String userId = null; // 사용자 ID를 저장할 변수
-    String userPk = null;
+    String userId = null;
+    Integer userPk = null;
     Cookie[] cookies = request.getCookies(); // 요청으로부터 쿠키 배열 가져오기
     if (cookies != null) {
         for (Cookie cookie : cookies) {
             if ("user_ID".equals(cookie.getName())) {
-                userId = cookie.getValue(); // user_ID 쿠키의 값을 찾아 변수에 저장
+                userId = cookie.getValue();
+                request.setAttribute("userId", userId);
             }
             else if ("user_pk".equals(cookie.getName())) {
-                userPk = cookie.getValue(); // user_ID 쿠키의 값을 찾아 변수에 저장
+                userPk = Integer.parseInt(cookie.getValue());
+                request.setAttribute("userPk", userPk);
             }
         }
     }
     else{
-        response.sendRedirect("login.jsp"); // 로그인 페이지로 리다이렉션
+        response.sendRedirect("login.jsp");
         return;
     }
 %>
 <html>
 <head>
-    <title>save</title>
+    <title>Save</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/resources/css/save.css">
+    <%--    boxicons css--%>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- feather icon -->
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
 </head>
 <body>
-<form action="/board/save" method="post">
-    <span>작성자: <%= userId%></span>
-    <input type="hidden" name="post_author" value=<%= userPk%> >
-    <input type="text" name="post_categoryId" placeholder="카테고리 아이디">
-    <input type="text" name="post_title" placeholder="제목">
-    <textarea name="post_contents" cols="60" rows="20" placeholder="내용을 입력하세요"></textarea>
 
-    <input type="submit" value="작성">
-</form>
+<div id="totalWrapper">
+    <div class="wrap">
+        <div class="intro_bg">
+            <div class ="header">
+                <div id="logo">
+                    <img src="/resources/image/improvLogo.png" width="81px" height="86px">
+                </div>
+                <%--                <div class="searchArea">--%>
+                <%--                    <form>--%>
+                <%--                        <input type="search" placeholder="Search">--%>
+                <%--&lt;%&ndash;                        <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">&ndash;%&gt;--%>
+                <%--                        <span>검색</span>--%>
+                <%--                    </form>--%>
+                <%--                </div>--%>
+                <ul class="upperNav">
+                    <li><a href="#">인문학</a></li>
+                    <li><a href="#">철학</a></li>
+                    <li><a href="#">IT</a></li>
+                    <li><a href="#">언어</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <nav class="sidebar">
+        <header>
+            <div class="image-text" onclick="location.href='/board/home/';">
+                        <span class="imageHome">
+                            <img src="/resources/image/homelogoB.png" alt="logo">
+                        </span>
+                <div class="header-text">
+                    <span class="homeName">SelfImprovment</span>
+                    <span class="Blog">Blog</span>
+                </div>
+            </div>
+        </header>
+        <div class="menu-bar">
+            <div class="menu">
+                <div class="circle">
+                    <img class="profile" src="/resources/image/profileImg.jpg" alt="profile">
+                </div>
+                <div class="confirm">
+                    <% if (userId != null) { %>
+                    <%= userId %> 님 안녕하세요
+                    <% } else { %>
+                    게스트님 안녕하세요
+                    <% } %>
+                </div>
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="board/home/myhome">
+                            <i class='bx bx-home icon'></i>
+                            <span class="text nav-text">마이 홈</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="/board/save">
+                            <i class='bx bx-edit-alt icon'></i>
+                            <span class="text nav-text">새 글 작성</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="">
+                    <a href="/user/logout">
+                        <i class='bx bx-log-out icon'></i>
+                        <span class="text nav-text">로그아웃</span>
+                    </a>
+                </li>
+            </div>
+
+        </div>
+
+    </nav>
+
+    <div class="board_wrap">
+        <div class="board_title">
+            <strong>새 글 작성</strong>
+        </div>
+        <form action="/board/save" method="post">
+            <div class="board_write_wrap">
+                <div class="board_write">
+                    <div class="title">
+                        <dl>
+                            <dt>제목</dt>
+                            <dd><input type="text" name="post_title" placeholder="제목"></dd>
+                        </dl>
+                    </div>
+                    <div class="info">
+                        <dl>
+                            <dt>글쓴이</dt>
+                            <dd><input type="hidden" name="post_author" value="<%=userPk%>" placeholder="작성자"></dd>
+                            <dd><p><%= userId %></p></dd>
+                        </dl>
+                        <dl>
+                            <dt>카테고리</dt>
+                            <dd><input type="text" name="post_categoryId" placeholder="카테고리 아이디"></dd>
+                        </dl>
+
+                    </div>
+                    <div class="cont">
+                        <textarea name="post_contents" placeholder="내용 입력"></textarea>
+                    </div>
+                </div>
+                <div class="bt_wrap">
+                    <input type="submit" value="등록" class="on">
+                    <a href="home.jsp">취소</a>
+                </div>
+            </div>
+        </form>
+
+    </div>
+<%--    <div class="container">--%>
+<%--        <div class="row">--%>
+<%--            <form action="/board/save" method="post">--%>
+<%--                <table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">--%>
+<%--                    <!-- 게시판에 글 목록들이 홀수와 짝수가 번갈아가며 색상이 변경됨. -->--%>
+<%--                    <thead>--%>
+<%--                    <tr>--%>
+<%--                        <th colspan="2"style="background-color: #eeeeee; text-align: center;">게시판 글쓰기 양식</th>--%>
+<%--                        <!-- 2개의 열을 사용할 수 있도록 colspan 사용 -->--%>
+<%--                    </tr>--%>
+<%--                    </thead>--%>
+<%--                    <tbody>--%>
+<%--                    <tr>--%>
+<%--                        <td><input type="text" class="form-control" placeholder="글 제목" name="bbsTitle" maxlength="50"></td>--%>
+<%--                    </tr>--%>
+<%--                    <tr>--%>
+<%--                        <td><textarea class="form-control" placeholder="글 내용" name="bbsContent" maxlength="2048" style="height: 350px;"></textarea></td>--%>
+<%--                    </tr>--%>
+<%--                    </tbody>--%>
+<%--                </table>--%>
+<%--                <input type="submit" class="btn btn-primary pull-right" value="글쓰기"> <!-- 글쓰기 버튼 -->--%>
+<%--            </form>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">--%>
+
+<%--    <!-- 부가적인 테마 -->--%>
+<%--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">--%>
+
+<%--    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->--%>
+<%--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>--%>
+<%--    <!-- jquery도 업로드 ~ -->--%>
+<%--    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>--%>
+<%--</div>--%>
+<footer>
+
+</footer>
+
 </body>
 <script>
     console.log("submit")

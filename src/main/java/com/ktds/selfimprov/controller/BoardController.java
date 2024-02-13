@@ -35,7 +35,7 @@ public class BoardController {
 
         int saveResult = boardService.save(boardDTO);
         if (saveResult > 0) {
-            return "redirect:/board/paging";
+            return "redirect:/board/home/";
         } else {
             return "save";
         }

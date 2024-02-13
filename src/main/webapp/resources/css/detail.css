@@ -397,49 +397,49 @@ header .image-text .header-text .Blog{
 }
 
 /* 댓글 */
-.comment{
+#comment-list{
     border-top: 1px solid #c7d2fe;
     padding-top: 32px;
 }
 
-.comment .comment__title{
+#comment-list .comment__title{
     display: flex;
     align-items: center;
     margin-bottom:32px;
     filter: drop-shadow(0px 2px 2px #d2dae5);
 }
-.comment .feather{
+#comment-list .feather{
     color: #4f46e5;
     margin-right: 16px;
 }
-.comment .comment__item{
+#comment-list .comment__item{
     display: flex;
     margin-bottom: 32px;
     flex-direction: column;
 }
-.comment .comment__item .user{
+#comment-list .comment__item .user{
     position: relative;
     margin:10px;
 }
-.comment .comment__item ul {
+#comment-list .comment__item ul {
     list-style: none;
 }
-.comment .comment__item .user__top{
+#comment-list .comment__item .user__top{
     display: flex;
     align-items: center;
     line-height: 150%;
     margin-bottom: 8px;
 }
-.comment .comment__item .user__top .user__avatar{
+#comment-list .comment__item .user__top .user__avatar{
     margin-right: 16px;
 }
-.comment .comment__item .user__top ul{
+#comment-list .comment__item .user__top ul{
     margin-bottom:0;
 }
-.comment .comment__item .user__top .user__job{
+#comment-list .comment__item .user__top .user__job{
     color:#4f46e5;
 }
-.container .content .comment .commentBtn{
+.container .content #comment-list .commentBtn{
     position: absolute;
     bottom: 8px;
     right: 8px;
@@ -448,13 +448,13 @@ header .image-text .header-text .Blog{
     opacity: 0.5;
     font-size: 15px;
 }
-.comment .comment__item .user__top .user__name{
+#comment-list .comment__item .user__top .user__name{
     font-weight: bold;
 }
-.comment .comment__item .user__comment{
+#comment-list .comment__item .user__comment{
     line-height: 150%;
 }
-.comment .comment__item .user__commentDate{
+#comment-list .comment__item .user__commentDate{
     position: relative;
     align-content: flex-end;
     color:#495a64;

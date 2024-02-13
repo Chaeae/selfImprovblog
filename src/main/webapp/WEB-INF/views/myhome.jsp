@@ -5,10 +5,30 @@
   Time: 오후 11:23
   To change this template use File | Settings | File Templates.
 --%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="java.sql.*" %>
+<%
+    String userId = null; // 사용자 ID를 저장할 변수
+    String userPk = null;
+    Cookie[] cookies = request.getCookies(); // 요청으로부터 쿠키 배열 가져오기
+    if (cookies != null) {
+        for (Cookie cookie : cookies) {
+            if ("user_ID".equals(cookie.getName())) {
+                userId = cookie.getValue(); // user_ID 쿠키의 값을 찾아 변수에 저장
+            }
+            else if ("user_pk".equals(cookie.getName())) {
+                userPk = cookie.getValue(); // user_ID 쿠키의 값을 찾아 변수에 저장
+            }
+        }
+    }
+    else{
+        response.sendRedirect("login.jsp"); // 로그인 페이지로 리다이렉션
+        return;
+    }
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,7 +85,11 @@
                     <img class="profile" src="/resources/image/profileImg.jpg" alt="profile">
                 </div>
                 <div class="confirm">
-                    chaeae 님 안녕하세요
+                    <% if (userId != null) { %>
+                    <%= userId %> 님 안녕하세요
+                    <% } else { %>
+                    게스트님 안녕하세요
+                    <% } %>
                 </div>
                 <ul class="menu-links">
                     <li class="nav-link">
@@ -87,7 +111,7 @@
 
             <div class="bottom-content">
                 <li class="">
-                    <a href="#">
+                    <a href="/user/logout">
                         <i class='bx bx-log-out icon'></i>
                         <span class="text nav-text">로그아웃</span>
                     </a>

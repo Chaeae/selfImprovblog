@@ -11,23 +11,23 @@
 <%@ page import="java.sql.*" %>
 
 <%
-    String userId = null; // 사용자 ID를 저장할 변수
+    String userId = null;
     Integer userPk = null;
-    Cookie[] cookies = request.getCookies(); // 요청으로부터 쿠키 배열 가져오기
+    Cookie[] cookies = request.getCookies();
     if (cookies != null) {
         for (Cookie cookie : cookies) {
             if ("user_ID".equals(cookie.getName())) {
-                userId = cookie.getValue(); // user_ID 쿠키의 값을 찾아 변수에 저장
+                userId = cookie.getValue();
                 request.setAttribute("userId", userId);
             }
             else if ("user_pk".equals(cookie.getName())) {
-                userPk = Integer.parseInt(cookie.getValue()); // user_ID 쿠키의 값을 찾아 변수에 저장
+                userPk = Integer.parseInt(cookie.getValue());
                 request.setAttribute("userPk", userPk);
             }
         }
     }
     else{
-        response.sendRedirect("login.jsp"); // 로그인 페이지로 리다이렉션
+        response.sendRedirect("login.jsp");
         return;
     }
 %>
@@ -153,55 +153,12 @@
                         <i class='bx bxs-trash commentBtnIcon' onclick="deleteFn()">삭제</i>
                     </div>
                 </c:if>
-                <%--                    <!-- 대표이미지 -->--%>
-                <%--                    <figure class="featured-image">--%>
-                <%--                        <img src="./src/featured_image.jpg" alt="blog featured-image">--%>
-                <%--                    </figure>--%>
 
                 <!-- 본문내용 -->
                 <article class="post-content">
                     <p id="realContents">
                         ${board.post_contents}
                     </p>
-                    <%--                        <h2>지나가는 위에 내 별빛이 무엇인지 별 버리었습니다.</h2>--%>
-                    <%--                        <p>많은 하나에 별이 나는 오면 별 흙으로 남은 까닭입니다. 차 소녀들의 별을 어머님, 별 벌써 흙으로 버리었습니다. 하나 하나에 벌써 못 했던 어머니 이네들은 별에도 까닭입니다. 이네들은 이웃 않은 계집애들의 내린 봄이 별이 딴은 있습니다. 한 내 멀듯이, 위에도 나의 쓸쓸함과 비둘기, 별빛이 그리고 봅니다. 당신은 잠, 별 헤는 하나에 것은 별 같이 잔디가 봅니다. 프랑시스 가난한 무엇인지 이름과, 봅니다. 했던 멀리 청춘이 덮어 때 까닭이요, 까닭입니다. 별 북간도에 프랑시스 덮어 있습니다. 우는 애기 아름다운 된 하나에 가슴속에 너무나 있습니다. </p>--%>
-                    <%--                        <h2>하나에 멀듯이, 이름자 까닭입니다.</h2>--%>
-                    <%--                        <p>겨울이 아스라히 하나에 까닭입니다. 아직 아름다운 이 계집애들의 별에도 봅니다. 된 추억과 동경과 멀리 노루, 계십니다. 된 경, 너무나 하늘에는 그러나 언덕 있습니다. 덮어 별 옥 보고, 하늘에는 불러 이름과, 내린 못 봅니다. 잔디가 하나에 패, 북간도에 아스라히 멀듯이, 부끄러운 차 있습니다. 겨울이 하나에 이름과, 봄이 까닭입니다. 하나에 위에 걱정도 오면 거외다. 패, 잔디가 이름을 그리워 자랑처럼 너무나 까닭입니다. 위에도 비둘기, 내 다하지 어머니, 쓸쓸함과 이 새워 이제 까닭입니다.</p>--%>
-
-                    <%--                        <div class="image">--%>
-                    <%--                            <figure class="image__item">--%>
-                    <%--                                <img src="./src/image_01.jpg" alt="">--%>
-                    <%--                            </figure>--%>
-                    <%--                            <figure class="image__item">--%>
-                    <%--                                <img src="./src/image_02.jpg" alt="">--%>
-                    <%--                            </figure>--%>
-                    <%--                        </div>--%>
-
-                    <%--                        <p>많은 나의 된 이름과, 계십니다. 아직 써 하나의 계십니다. 풀이 옥 동경과 지나고 하나에 남은 하나에 이름과, 듯합니다. 밤이 까닭이요, 멀리 어머니, 청춘이 버리었습니다. 밤이 슬퍼하는 그러나 비둘기, 계십니다. 그리워 않은 파란 새겨지는 별 슬퍼하는 헤는 봅니다. 이름과 노새, 나는 어머님, 가을로 하나에 내린 무엇인지 봅니다. 계절이 하나에 지나고 불러 오는 봅니다. 청춘이 가난한 북간도에 별 버리었습니다.</p>--%>
-
-                    <%--                        <blockquote>별들을 까닭이요, 어머님, 이국 까닭입니다. 헤일 너무나 애기 계십니다. 아름다운 이름을 그리고 묻힌 딴은 까닭입니다. 어머니, 청춘이 했던 가을 이름과 쓸쓸함과 당신은 까닭입니다. </blockquote>--%>
-
-                    <%--                        <h2>이웃 쓸쓸함과 우는 별 릴케 걱정도 아무 봅니다.</h2>--%>
-
-                    <%--                        <p>남은 동경과 어머니, 속의 둘 별빛이 강아지, 아스라히 하나에 듯합니다. 다하지 보고, 멀듯이, 까닭입니다. 하늘에는 까닭이요, 마리아 이름과, 너무나 벌써 아무 써 잔디가 거외다. 쉬이 이름과, 써 계십니다. 라이너 무성할 별 헤는 이름과 하늘에는 버리었습니다. 없이 이름과, 이름과, 아직 봅니다. 시와 나의 한 사람들의 비둘기, 멀리 버리었습니다. 불러 피어나듯이 벌레는 버리었습니다.</p>--%>
-
-                    <%--                        <p>언덕 시인의 멀듯이, 무엇인지 그러나 오면 하나 버리었습니다. 토끼, 패, 그러나 하나에 소학교 계집애들의 지나고 다 듯합니다. 남은 위에 위에도 청춘이 흙으로 멀듯이, 마리아 있습니다. 위에 불러 강아지, 멀리 별을 어머니, 남은 많은 위에도 버리었습니다. 아무 노새, 별 노루, 이웃 가득 까닭입니다. 계집애들의 다 별 까닭입니다. 무성할 계집애들의 한 그리고 까닭입니다. 패, 헤는 밤을 아이들의 거외다. 밤을 내일 소학교 어머니, 피어나듯이 잠, 별 계십니다. 못 이 나는 있습니다. 가득 가슴속에 다 나의 별 하나에 봅니다.</p>--%>
-
-
-
-
-
-
-
-                    <!-- 해시태그 -->
-                    <%--                        <div class="hashtag">--%>
-                    <%--                            <i data-feather="hash"></i>--%>
-                    <%--                            <ul>--%>
-                    <%--                                <li class="hashtag__item">#일기</li>--%>
-                    <%--                                <li class="hashtag__item">#일상</li>--%>
-                    <%--                                <li class="hashtag__item">#이야기</li>--%>
-                    <%--                            </ul>--%>
-                    <%--                        </div>--%>
 
                     <div class="data">
                         <i class='bx bx-show-alt iconData'></i>
@@ -211,7 +168,7 @@
 
                     </div>
                     <!-- 댓글 -->
-                    <div class="comment">
+                    <div id="comment-list">
                         <h2 class="comment__title">
                             <i data-feather="message-circle"></i>
                             Comment
@@ -224,21 +181,20 @@
 
                         </div>
 
-                        <div class="comment__item">
+                        <div id="comment__item" class="comment__item">
                             <c:forEach var="comment" items="${commentList}">
-                                <div class="user">
+                                <div id="user" class="user">
                                     <div class="comment-contents">
                                         <div class="user__top">
                                                 <%--                                            <figure class="user__avatar">--%>
                                                 <%--                                                <img src="./src/comment_user_01.png" alt="">--%>
                                                 <%--                                            </figure>--%>
                                             <ul>
-                                                <li class="user__job"></li>
                                                 <li class="user__name">${comment.cmm_writer}</li>
                                             </ul>
                                         </div>
                                         <div class="user__commentDate">
-                                            <fmt:formatDate value="${board.post_postDate}" pattern="yyyy.MM.dd. HH:mm"/>
+                                            <fmt:formatDate value="${comment.cmm_commentDate}" pattern="yyyy.MM.dd. HH:mm"/>
                                         </div>
                                         <div class="user__comment">
                                                 ${comment.cmm_text}
@@ -262,11 +218,11 @@
         </div>
 
 
-        </div>
     </div>
-    <footer>
+</div>
+<footer>
 
-    </footer>
+</footer>
 
 </body>
 <script src="//code.jquery.com/jquery-3.5.1.min.js" ></script>
@@ -299,30 +255,32 @@
                 success: function(commentList) {
                     console.log("작성성공");
                     console.log(commentList);
-                    let output = "<table>";
-
-                    for(let i in commentList){
-                        console.log(commentList[i]);
-                        output += "<tr>";
-                        output += "<td>"+commentList[i].cmm_commentId+"</td>";
-                        output += "<td>"+commentList[i].cmm_writer+"</td>";
-                        output += "<td>"+commentList[i].cmm_text+"</td>";
-                        output += "<td>"+commentList[i].cmm_commentDate+"</td>";
-                        output += "</tr>";
-                    }
-                    output += "</table>";
-
-                    console.log(output)
-                    console.log(document.getElementById('comment-list'));
-                    document.getElementById('comment-list').innerHTML = output;
-                    document.getElementById('cmm_writer').value='';
-                    document.getElementById('cmm_text').value='';
+                    let output = "";
+                    commentList.forEach(comment => {
+                        output += `
+                            <div id="user">
+                                <div class="comment-contents">
+                                    <div class="user__top">
+                                        <ul>
+                                            <li class="user__name">${comment.cmm_writer}</li>
+                                        </ul>
+                                    </div>
+                                    <div class="user__commentDate">${comment.cmm_commentDate}</div>
+                                    <div class="user__comment">${comment.cmm_text}</div>
+                                </div>
+            <%--                    ${comment.cmm_writer == writer ? `<div class="commentBtn">--%>
+            <%--                        <i class='bx bxs-edit-alt commentBtnIcon' onclick="commentUpdate(${comment.cmm_commentId})"></i>--%>
+            <%--                        <i class='bx bxs-trash commentBtnIcon' onclick="commentDelete(${comment.cmm_commentId})"></i>--%>
+            <%--                    </div>` : ''}--%>
+                            </div>`;
+                    });
+                    document.getElementById('user').innerHTML = output;
+                    document.getElementById('cmm_text').value = ''; // Reset textarea after posting
                 },
-                error: function() {
-                    console.log("실패");
-                }
+            error: function() {
+                console.log("실패");
             }
-        );
+        });
     }
 
     //document.getElementById란 html 전체를 돔이라고 하는데 거기서 element를 가져온다라는 의미
@@ -393,26 +351,32 @@
                 success: function(commentList) {
                     console.log("댓글 삭제 성공");
                     console.log(commentList);
-                    let output = "<table>";
-
-                    for(let i in commentList){
-                        output += "<tr>";
-                        output += "<td>"+commentList[i].cmm_commentId+"</td>";
-                        output += "<td>"+commentList[i].cmm_writer+"</td>";
-                        output += "<td>"+commentList[i].cmm_text+"</td>";
-                        output += "<td>"+commentList[i].cmm_commentDate+"</td>";
-                        output += "</tr>";
-                    }
-                    output += "</table>";
-                    document.getElementById('comment-list').innerHTML = output;
-                    document.getElementById('cmm_writer').value='';
-                    document.getElementById('cmm_text').value='';
+                    let output = "";
+                    commentList.forEach(comment => {
+                        output += `
+                            <div id="user">
+                                <div class="comment-contents">
+                                    <div class="user__top">
+                                        <ul>
+                                            <li class="user__name">${comment.cmm_writer}</li>
+                                        </ul>
+                                    </div>
+                                    <div class="user__commentDate">${comment.cmm_commentDate}</div>
+                                    <div class="user__comment">${comment.cmm_text}</div>
+                                </div>
+            <%--                    ${comment.cmm_writer == writer ? `<div class="commentBtn">--%>
+            <%--                        <i class='bx bxs-edit-alt commentBtnIcon' onclick="commentUpdate(${comment.cmm_commentId})"></i>--%>
+            <%--                        <i class='bx bxs-trash commentBtnIcon' onclick="commentDelete(${comment.cmm_commentId})"></i>--%>
+            <%--                    </div>` : ''}--%>
+                            </div>`;
+                    });
+                    document.getElementById('user').innerHTML = output;
+                    document.getElementById('cmm_text').value = ''; // Reset textarea after posting
                 },
-                error: function() {
-                    console.log("실패");
-                }
+            error: function() {
+                console.log("실패");
             }
-        );
+        });
     }
 </script>
 </html>

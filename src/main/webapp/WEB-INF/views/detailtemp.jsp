@@ -199,6 +199,8 @@
                         output += "</tr>";
                     }
                     output += "</table>";
+                    console.log(output)
+                    console.log(document.getElementById('comment-list'));
                     document.getElementById('comment-list').innerHTML = output;
                     document.getElementById('cmm_writer').value='';
                     document.getElementById('cmm_text').value='';

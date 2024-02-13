@@ -9,6 +9,8 @@ import com.ktds.selfimprov.service.BoardService;
 import com.ktds.selfimprov.service.CommentService;
 import com.ktds.selfimprov.service.UserService;
 import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -88,4 +90,28 @@ public class UserController {
 
     }
 
+    @PostMapping("/logout")
+    public String logout(HttpServletRequest request, HttpServletResponse response) {
+        // 쿠키 배열을 가져옵니다.
+        Cookie[] cookies = request.getCookies();
+
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if ("user_ID".equals(cookie.getName())) {
+                    cookie.setValue(""); // 쿠키 값을 비움
+                    cookie.setPath("/"); // 쿠키 경로를 설정
+                    cookie.setMaxAge(0); // 쿠키 유효 시간을 0으로 설정하여 즉시 삭제
+                    response.addCookie(cookie); // 변경된 쿠키 정보를 응답에 추가
+                }
+                if ("user_Pk".equals(cookie.getName())) {
+                    cookie.setValue("");
+                    cookie.setPath("/");
+                    cookie.setMaxAge(0);
+                    response.addCookie(cookie);
+                }
+            }
+        }
+
+        return "redirect:/user/login";
+    }
 }
