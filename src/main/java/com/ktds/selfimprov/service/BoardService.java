@@ -31,6 +31,7 @@ public class BoardService {
     public BoardDTO findById(Long post_id) {
         return boardRepository.findById(post_id);
     }
+    public List<BoardDTO> findByUserId(Long post_author) {return boardRepository.findByUserId(post_author);}
 
     public void delete(Long post_id) {
         boardRepository.delete(post_id);

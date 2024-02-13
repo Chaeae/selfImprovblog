@@ -6,6 +6,8 @@ import com.ktds.selfimprov.dto.CommentDTO;
 import com.ktds.selfimprov.dto.PageDTO;
 import com.ktds.selfimprov.service.BoardService;
 import com.ktds.selfimprov.service.CommentService;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -100,5 +102,29 @@ public class BoardController {
         List<BoardDTO> boardDTOList = boardService.findAll();
         model.addAttribute("boardList", boardDTOList);//"boardList"라는 이름으로 위에서 생성한 boardDTOList를 model에 담아서 전송하겠다
         return "home";
+    }
+    @GetMapping("/home/myhome")
+    public String homeFindIdAndAll(HttpServletRequest request,
+                                   Model model) {
+        Long user_id=null;
+
+        Cookie[] cookies = request.getCookies();
+        if(cookies != null){
+            for (Cookie cookie : cookies){
+                if ("user_pk".equals(cookie.getName())) {// "user_pk" 쿠키를 찾음
+                    user_id = Long.parseLong(cookie.getValue());// 쿠키의 값을 Long 타입으로 변환
+                    break;
+                }
+            }
+        }
+        else{
+            return "redirect:/user/login";
+        }
+        System.out.println("homeFindIdAndAll진입");
+        List<BoardDTO> boardDTOList = boardService.findByUserId(user_id);
+        System.out.println(boardDTOList);
+        //터지면 null일때 예외처리 생각해보기
+        model.addAttribute("boardList", boardDTOList);//"boardList"라는 이름으로 위에서 생성한 boardDTOList를 model에 담아서 전송하겠다
+        return "myhome";
     }
 }

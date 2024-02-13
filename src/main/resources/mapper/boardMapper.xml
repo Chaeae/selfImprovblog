@@ -13,6 +13,9 @@
     <select id="findById" parameterType="Long" resultType="board">
         select * from posting_table where post_id=#{post_id}
     </select>
+    <select id="findByUserId" resultType="board">
+        select * from posting_table where post_author=#{post_author} order by post_postDate desc
+    </select>
     <update id="updateHits" parameterType="Long">
         update posting_table set post_viewNum = post_viewNum + 1 where post_id=#{post_id}
     </update>

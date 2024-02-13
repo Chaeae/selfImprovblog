@@ -48,7 +48,15 @@
 
     <nav class="sidebar">
         <header>
-
+            <div class="image-text" onclick="location.href='/board/home/';">
+                        <span class="imageHome">
+                            <img src="/resources/image/homelogoB.png" alt="logo">
+                        </span>
+                <div class="header-text">
+                    <span class="homeName">SelfImprovment</span>
+                    <span class="Blog">Blog</span>
+                </div>
+            </div>
         </header>
 
         <div class="menu-bar">
@@ -97,6 +105,7 @@
             </li>
             <div class="container">
                 <c:forEach items="${boardList}" var="board">
+
                     <div class="ele" onclick="location.href='/board?id=${board.post_id}';">
                         <div class ="contentBox">
                             <div class="subbox1">
@@ -129,12 +138,6 @@
                 </c:forEach>
 
             </div>
-
-
-
-
-
-
 
 
         </div>

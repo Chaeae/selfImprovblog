@@ -91,7 +91,7 @@
                     </div>
                     <ul class="menu-links">
                         <li class="nav-link">
-                            <a href="#">
+                            <a href="/board/home/myhome">
                                 <i class='bx bx-home icon'></i>
                                 <span class="text nav-text">마이 홈</span>
                             </a>
@@ -135,7 +135,7 @@
                                 <div class="subbox2">
                                     <span class="date">
                                             <fmt:formatDate value="${board.post_postDate}" pattern="yyyy.MM.dd. HH:mm"/>
-                                        </span>
+                                    </span>
                                     <p class="writerID">${board.post_author}</p>
                                     <br>
                                     <h2 class="heading">${board.post_title}</h2>

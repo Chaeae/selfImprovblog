@@ -61,6 +61,7 @@ public class UserController {
             System.out.println("user_pw"+user_pw);
             if(user_pw.equals(userDTO.getUser_pw())){ //PW가 DB와 동일하면
                 System.out.println("cookie함수 진입");
+
                 Cookie userIdCookie = new Cookie("user_ID", user_ID);
                 System.out.println(userIdCookie);
                 userIdCookie.setMaxAge(60 * 60 * 24); // 24시간 동안 유효
@@ -68,6 +69,7 @@ public class UserController {
                 userIdCookie.setPath("/");
                 response.addCookie(userIdCookie); // 응답에 쿠키 추가
                 System.out.println(userDTO.getUser_pk());
+
                 // user_pk를 위한 쿠키
                 Cookie userPkCookie = new Cookie("user_pk", String.valueOf(userDTO.getUser_pk())); // user_pk를 String으로 변환
                 userPkCookie.setMaxAge(60 * 60 * 24); // 24시간 동안 유효
