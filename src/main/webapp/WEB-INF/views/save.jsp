@@ -39,31 +39,32 @@
 
 </head>
 <body>
-
 <div id="totalWrapper">
     <div class="wrap">
         <div class="intro_bg">
             <div class ="header">
-<%--                <div id="logo">--%>
-<%--                    <img src="/resources/image/improvLogo.png" width="81px" height="86px">--%>
-<%--                </div>--%>
-<%--                &lt;%&ndash;                <div class="searchArea">&ndash;%&gt;--%>
-<%--                &lt;%&ndash;                    <form>&ndash;%&gt;--%>
-<%--                &lt;%&ndash;                        <input type="search" placeholder="Search">&ndash;%&gt;--%>
-<%--                &lt;%&ndash;&lt;%&ndash;                        <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">&ndash;%&gt;&ndash;%&gt;--%>
-<%--                &lt;%&ndash;                        <span>검색</span>&ndash;%&gt;--%>
-<%--                &lt;%&ndash;                    </form>&ndash;%&gt;--%>
-<%--                &lt;%&ndash;                </div>&ndash;%&gt;--%>
-<%--                <ul class="upperNav">--%>
-<%--                    <li><a href="#">인문학</a></li>--%>
-<%--                    <li><a href="#">철학</a></li>--%>
-<%--                    <li><a href="#">IT</a></li>--%>
-<%--                    <li><a href="#">언어</a></li>--%>
-<%--                </ul>--%>
+                <%--                <div id="logo">--%>
+                <%--                    <img src="/resources/image/improvLogo.png" width="81px" height="86px">--%>
+                <%--                </div>--%>
+                <%--                &lt;%&ndash;                <div class="searchArea">&ndash;%&gt;--%>
+                <%--                &lt;%&ndash;                    <form>&ndash;%&gt;--%>
+                <%--                &lt;%&ndash;                        <input type="search" placeholder="Search">&ndash;%&gt;--%>
+                <%--                &lt;%&ndash;&lt;%&ndash;                        <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">&ndash;%&gt;&ndash;%&gt;--%>
+                <%--                &lt;%&ndash;                        <span>검색</span>&ndash;%&gt;--%>
+                <%--                &lt;%&ndash;                    </form>&ndash;%&gt;--%>
+                <%--                &lt;%&ndash;                </div>&ndash;%&gt;--%>
+                <%--                <ul class="upperNav">--%>
+                <%--                    <li><a href="#">인문학</a></li>--%>
+                <%--                    <li><a href="#">철학</a></li>--%>
+                <%--                    <li><a href="#">IT</a></li>--%>
+                <%--                    <li><a href="#">언어</a></li>--%>
+                <%--                </ul>--%>
 
-<%--            </div>--%>
+                <%--            </div>--%>
+            </div>
         </div>
     </div>
+
 
     <nav class="sidebar">
         <header>
@@ -91,7 +92,7 @@
                 </div>
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="board/home/myhome">
+                        <a href="board/home/myhome/">
                             <i class='bx bx-home icon'></i>
                             <span class="text nav-text">마이 홈</span>
                         </a>
@@ -150,18 +151,19 @@
                     </div>
                 </div>
                 <div class="bt_wrap">
-                    <input type="submit" value="등록" class="on">
+                    <%--                    <a href="detail.jsp">작성</a>--%>
+                    <dd><input type="submit" value="작성" class="on"></dd>
+                    <%--                    <input type="submit" value="등록" class="on">--%>
                     <a href="home.jsp">취소</a>
                 </div>
             </div>
         </form>
 
     </div>
-
+</div>
 <footer>
 
 </footer>
-
 </body>
 <script>
     console.log("submit")

@@ -35,7 +35,9 @@ public class BoardController {
 
         int saveResult = boardService.save(boardDTO);
         if (saveResult > 0) {
-            return "redirect:/board/home/";
+            return "redirect:/board/home/myhome";
+//            return "myhome";
+//            return "home";
         } else {
             return "save";
         }
@@ -65,7 +67,8 @@ public class BoardController {
     @GetMapping("/delete")
     public String delete(@RequestParam("id") Long post_id) {
         boardService.delete(post_id);
-        return "redirect:/board/";
+        System.out.println("delete성공");
+        return "redirect:/board/home/myhome";
     }
 
     @GetMapping("/update")
@@ -80,9 +83,13 @@ public class BoardController {
 
     @PostMapping("/update")
     public String update(@ModelAttribute BoardDTO boardDTO, Model model) {
+        System.out.println(boardDTO);
         boardService.update(boardDTO);
+        System.out.println("업데이트 완료");
         BoardDTO dto = boardService.findById(boardDTO.getPost_id());
+        System.out.println("postid"+boardDTO.getPost_id());
         model.addAttribute("board", dto);
+        System.out.println("model출력"+model);
         return "detail";
     }
 

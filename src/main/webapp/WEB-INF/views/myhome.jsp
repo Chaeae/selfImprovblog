@@ -93,7 +93,7 @@
                 </div>
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="/board/home/myhome">
                             <i class='bx bx-home icon'></i>
                             <span class="text nav-text">마이 홈</span>
                         </a>

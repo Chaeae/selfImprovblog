@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -12,14 +11,12 @@
             if ("user_ID".equals(cookie.getName())) {
                 userId = cookie.getValue();
                 request.setAttribute("userId", userId);
-            }
-            else if ("user_pk".equals(cookie.getName())) {
+            } else if ("user_pk".equals(cookie.getName())) {
                 userPk = Integer.parseInt(cookie.getValue());
                 request.setAttribute("userPk", userPk);
             }
         }
-    }
-    else{
+    } else {
         response.sendRedirect("login.jsp");
         return;
     }
@@ -42,7 +39,7 @@
 <div id="totalWrapper">
     <div class="wrap">
         <div class="intro_bg">
-            <div class ="header">
+            <div class="header">
                 <%--                <div id="logo">--%>
                 <%--                    <img src="/resources/image/improvLogo.png" width="81px" height="86px">--%>
                 <%--                </div>--%>
@@ -90,7 +87,7 @@
                     </div>
                     <ul class="menu-links">
                         <li class="nav-link">
-                            <a href="board/home/myhome">
+                            <a href="/board/home/myhome/">
                                 <i class='bx bx-home icon'></i>
                                 <span class="text nav-text">마이 홈</span>
                             </a>
@@ -122,11 +119,12 @@
             <div class="board_title">
                 <strong>글 수정</strong>
             </div>
-            <form action="/board/update" method="post">
+            <form action="/board/update" method="post" name="update">
                 <div class="board_write_wrap">
                     <div class="board_write">
                         <div class="title">
                             <dl>
+                                <input type="hidden" name="post_id" value="${board.post_id}">
                                 <dt>제목</dt>
                                 <dd><input type="text" name="post_title" value="${board.post_title}"></dd>
                             </dl>
@@ -134,7 +132,7 @@
                         <div class="info">
                             <dl>
                                 <dt>글쓴이</dt>
-                                <dd><input type="hidden" name="post_author" value="<%=userPk%>" placeholder="작성자"></dd>
+                                <dd><input type="hidden" name="post_author" value="<%=userPk%>" placeholder="작성자"></input></dd>
                                 <dd><p><%= userId %></p></dd>
                             </dl>
                             <dl>
@@ -144,24 +142,26 @@
 
                         </div>
                         <div class="cont">
-                            <textarea name="post_contents" placeholder="내용 입력"></textarea>
+                            <textarea name="post_contents">${board.post_contents}</textarea>
                         </div>
                     </div>
                     <div class="bt_wrap">
-                        <input type="submit" value="등록" class="on">
+                        <%--                        <a type="submit" onclick="return ">작성</a>--%>
+                        <%--                        <input type="button" value="수정" onclick="updateReqFn()">--%>
+                        <dd><input type="submit" value="작성" class="on"></dd>
                         <a href="home.jsp">취소</a>
                     </div>
                 </div>
             </form>
-<%--<form action="/board/update" method="post" name="updateForm">--%>
-<%--    <input type="hidden" name="post_id" value="${board.post_id}" readonly>--%>
-<%--    <input type="text" name="post_author" value="${board.post_author}" readonly>--%>
-<%--&lt;%&ndash;    <input type="text" name="boardPass" id="boardPass" placeholder="비밀번호">&ndash;%&gt;--%>
-<%--    <input type="text" name="post_categoryId" value="${board.post_categoryId}">--%>
-<%--    <input type="text" name="post_title" value="${board.post_title}">--%>
-<%--    <textarea name="post_contents" cols="30" rows="10">${board.post_contents}</textarea>--%>
-<%--    <input type="button" value="수정" onclick="updateReqFn()">--%>
-<%--</form>--%>
+            <%--<form action="/board/update" method="post" name="updateForm">--%>
+            <%--    <input type="hidden" name="post_id" value="${board.post_id}" readonly>--%>
+            <%--    <input type="text" name="post_author" value="${board.post_author}" readonly>--%>
+            <%--&lt;%&ndash;    <input type="text" name="boardPass" id="boardPass" placeholder="비밀번호">&ndash;%&gt;--%>
+            <%--    <input type="text" name="post_categoryId" value="${board.post_categoryId}">--%>
+            <%--    <input type="text" name="post_title" value="${board.post_title}">--%>
+            <%--    <textarea name="post_contents" cols="30" rows="10">${board.post_contents}</textarea>--%>
+            <%--    <input type="button" value="수정" onclick="updateReqFn()">--%>
+            <%--</form>--%>
         </div>
     </div>
 </div>
