@@ -21,8 +21,8 @@ public class CommentService {
         return commentRepository.findAll(cmm_postId);
     }
 
-    public CommentDTO findById(Long cmm_postId) {
-        return commentRepository.findById(cmm_postId);
+    public CommentDTO findById(Long cmm_commentId) {
+        return commentRepository.findById(cmm_commentId);
     }
 
     public void updateComment(CommentDTO commentDTO) { commentRepository.updateComment(commentDTO); }

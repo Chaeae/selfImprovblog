@@ -44,24 +44,24 @@
     <div class="wrap">
         <div class="intro_bg">
             <div class ="header">
-                <div id="logo">
-                    <img src="/resources/image/improvLogo.png" width="81px" height="86px">
-                </div>
-                <%--                <div class="searchArea">--%>
-                <%--                    <form>--%>
-                <%--                        <input type="search" placeholder="Search">--%>
-                <%--&lt;%&ndash;                        <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">&ndash;%&gt;--%>
-                <%--                        <span>검색</span>--%>
-                <%--                    </form>--%>
-                <%--                </div>--%>
-                <ul class="upperNav">
-                    <li><a href="#">인문학</a></li>
-                    <li><a href="#">철학</a></li>
-                    <li><a href="#">IT</a></li>
-                    <li><a href="#">언어</a></li>
-                </ul>
+<%--                <div id="logo">--%>
+<%--                    <img src="/resources/image/improvLogo.png" width="81px" height="86px">--%>
+<%--                </div>--%>
+<%--                &lt;%&ndash;                <div class="searchArea">&ndash;%&gt;--%>
+<%--                &lt;%&ndash;                    <form>&ndash;%&gt;--%>
+<%--                &lt;%&ndash;                        <input type="search" placeholder="Search">&ndash;%&gt;--%>
+<%--                &lt;%&ndash;&lt;%&ndash;                        <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">&ndash;%&gt;&ndash;%&gt;--%>
+<%--                &lt;%&ndash;                        <span>검색</span>&ndash;%&gt;--%>
+<%--                &lt;%&ndash;                    </form>&ndash;%&gt;--%>
+<%--                &lt;%&ndash;                </div>&ndash;%&gt;--%>
+<%--                <ul class="upperNav">--%>
+<%--                    <li><a href="#">인문학</a></li>--%>
+<%--                    <li><a href="#">철학</a></li>--%>
+<%--                    <li><a href="#">IT</a></li>--%>
+<%--                    <li><a href="#">언어</a></li>--%>
+<%--                </ul>--%>
 
-            </div>
+<%--            </div>--%>
         </div>
     </div>
 
@@ -157,40 +157,7 @@
         </form>
 
     </div>
-<%--    <div class="container">--%>
-<%--        <div class="row">--%>
-<%--            <form action="/board/save" method="post">--%>
-<%--                <table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">--%>
-<%--                    <!-- 게시판에 글 목록들이 홀수와 짝수가 번갈아가며 색상이 변경됨. -->--%>
-<%--                    <thead>--%>
-<%--                    <tr>--%>
-<%--                        <th colspan="2"style="background-color: #eeeeee; text-align: center;">게시판 글쓰기 양식</th>--%>
-<%--                        <!-- 2개의 열을 사용할 수 있도록 colspan 사용 -->--%>
-<%--                    </tr>--%>
-<%--                    </thead>--%>
-<%--                    <tbody>--%>
-<%--                    <tr>--%>
-<%--                        <td><input type="text" class="form-control" placeholder="글 제목" name="bbsTitle" maxlength="50"></td>--%>
-<%--                    </tr>--%>
-<%--                    <tr>--%>
-<%--                        <td><textarea class="form-control" placeholder="글 내용" name="bbsContent" maxlength="2048" style="height: 350px;"></textarea></td>--%>
-<%--                    </tr>--%>
-<%--                    </tbody>--%>
-<%--                </table>--%>
-<%--                <input type="submit" class="btn btn-primary pull-right" value="글쓰기"> <!-- 글쓰기 버튼 -->--%>
-<%--            </form>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">--%>
 
-<%--    <!-- 부가적인 테마 -->--%>
-<%--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">--%>
-
-<%--    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->--%>
-<%--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>--%>
-<%--    <!-- jquery도 업로드 ~ -->--%>
-<%--    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>--%>
-<%--</div>--%>
 <footer>
 
 </footer>

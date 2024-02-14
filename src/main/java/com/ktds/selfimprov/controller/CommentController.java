@@ -72,6 +72,15 @@ public class CommentController {
 //        return dto;
 //    }
 
+    @GetMapping("/updateComment")
+    public CommentDTO updateCommentForm(@RequestParam("cmm_commentId") Long cmm_commentId,
+                                                            Model model) {
+        System.out.println("updateForm commentId"+cmm_commentId);
+        CommentDTO commentDTO = commentService.findById(cmm_commentId);
+        model.addAttribute("commentDTO", commentDTO);
+
+        return commentDTO;
+    }
     @PostMapping("/updateComment")
     public @ResponseBody List<CommentDTO> updateComment(@ModelAttribute CommentDTO commentDTO, Model model) {
         commentService.updateComment(commentDTO);

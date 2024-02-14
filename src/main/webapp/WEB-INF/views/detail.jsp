@@ -50,24 +50,24 @@
     <div class="wrap">
         <div class="intro_bg">
             <div class ="header">
-                <div id="logo">
-                    <img src="/resources/image/improvLogo.png" width="81px" height="86px">
-                </div>
-                <%--                <div class="searchArea">--%>
-                <%--                    <form>--%>
-                <%--                        <input type="search" placeholder="Search">--%>
-                <%--&lt;%&ndash;                        <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">&ndash;%&gt;--%>
-                <%--                        <span>검색</span>--%>
-                <%--                    </form>--%>
-                <%--                </div>--%>
-                <ul class="upperNav">
-                    <li><a href="#">인문학</a></li>
-                    <li><a href="#">철학</a></li>
-                    <li><a href="#">IT</a></li>
-                    <li><a href="#">언어</a></li>
-                </ul>
+<%--                <div id="logo">--%>
+<%--                    <img src="/resources/image/improvLogo.png" width="81px" height="86px">--%>
+<%--                </div>--%>
+<%--                &lt;%&ndash;                <div class="searchArea">&ndash;%&gt;--%>
+<%--                &lt;%&ndash;                    <form>&ndash;%&gt;--%>
+<%--                &lt;%&ndash;                        <input type="search" placeholder="Search">&ndash;%&gt;--%>
+<%--                &lt;%&ndash;&lt;%&ndash;                        <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">&ndash;%&gt;&ndash;%&gt;--%>
+<%--                &lt;%&ndash;                        <span>검색</span>&ndash;%&gt;--%>
+<%--                &lt;%&ndash;                    </form>&ndash;%&gt;--%>
+<%--                &lt;%&ndash;                </div>&ndash;%&gt;--%>
+<%--                <ul class="upperNav">--%>
+<%--                    <li><a href="#">인문학</a></li>--%>
+<%--                    <li><a href="#">철학</a></li>--%>
+<%--                    <li><a href="#">IT</a></li>--%>
+<%--                    <li><a href="#">언어</a></li>--%>
+<%--                </ul>--%>
 
-            </div>
+<%--            </div>--%>
         </div>
     </div>
 
@@ -115,7 +115,7 @@
 
             <div class="bottom-content">
                 <li class="">
-                    <a href="#">
+                    <a href="/user/logout">
                         <i class='bx bx-log-out icon'></i>
                         <span class="text nav-text">로그아웃</span>
                     </a>
@@ -202,7 +202,7 @@
                                     </div>
                                     <c:if test="${comment.cmm_writer == userPk}">
                                         <div class="commentBtn">
-                                            <i class='bx bxs-edit-alt commentBtnIcon' onclick="commentUpdate(${comment.cmm_commentId})"></i>
+                                            <i class='bx bxs-edit-alt commentBtnIcon' onclick="commentUpdateForm(${comment.cmm_commentId})"></i>
                                             <i class='bx bxs-trash commentBtnIcon' onclick="commentDelete(${comment.cmm_commentId})"></i>
                                         </div>
                                     </c:if>
@@ -240,6 +240,7 @@
 
     const commentWrite = () => {
         // const writer = document.getElementById("cmm_writer").value;
+
         const writer = '${userPk}';
         const text = document.getElementById("cmm_text").value;
         const postId = '${board.post_id}';
@@ -255,25 +256,41 @@
                 success: function(commentList) {
                     console.log("작성성공");
                     console.log(commentList);
-                    let output = "";
-                    commentList.forEach(comment => {
-                        output += `
-                            <div id="user">
-                                <div class="comment-contents">
-                                    <div class="user__top">
-                                        <ul>
-                                            <li class="user__name">${comment.cmm_writer}</li>
-                                        </ul>
-                                    </div>
-                                    <div class="user__commentDate">${comment.cmm_commentDate}</div>
-                                    <div class="user__comment">${comment.cmm_text}</div>
-                                </div>
-            <%--                    ${comment.cmm_writer == writer ? `<div class="commentBtn">--%>
-            <%--                        <i class='bx bxs-edit-alt commentBtnIcon' onclick="commentUpdate(${comment.cmm_commentId})"></i>--%>
-            <%--                        <i class='bx bxs-trash commentBtnIcon' onclick="commentDelete(${comment.cmm_commentId})"></i>--%>
-            <%--                    </div>` : ''}--%>
-                            </div>`;
+
+                    let formatter = new Intl.DateTimeFormat('ko-KR',{
+                        year: 'numeric',
+                        month: '2-digit',
+                        day: '2-digit',
+                        hour: '2-digit',
+                        minute: '2-digit',
                     });
+
+                    let output = "";
+                    output += '<div id="comment__item" class="comment__item">';
+                    commentList.forEach(comment => {
+                        console.log(comment.cmm_commentDate);
+                        let date = new Date(comment.cmm_commentDate);
+                        let formattedDate = formatter.format(date);
+                        console.log(formattedDate);
+                        output += '<div id="user">';
+                        output += '<div class="comment-contents">';
+                        output += '<div class="user__top">';
+                        output += '<ul>';
+                        output += '<li class="user__name">' + comment.cmm_writer + '</li>';
+                        output += '</ul>';
+                        output += '</div>';
+                        output += '<div class="user__commentDate">' + formattedDate + '</div>';
+                        output += '<div class="user__comment">' + comment.cmm_text + '</div>';
+                        output += '</div>'
+                        if(writer == comment.cmm_writer) {
+                            output += '<div class="commentBtn">';
+                            output += '<i class=\'bx bxs-edit-alt commentBtnIcon\' onClick="commentUpdateForm('+comment.cmm_commentId+')"></i>'
+                            output += '<i class=\'bx bxs-trash commentBtnIcon\' onClick="commentDelete('+comment.cmm_commentId+')"></i>'
+                        }
+                        output += '</div>';
+                        output += '</div>';
+                    });
+                    document.location.reload('user');
                     document.getElementById('user').innerHTML = output;
                     document.getElementById('cmm_text').value = ''; // Reset textarea after posting
                 },
@@ -285,16 +302,30 @@
 
     //document.getElementById란 html 전체를 돔이라고 하는데 거기서 element를 가져온다라는 의미
 
+    const commentUpdateForm = (cmm_commentId) => {
+        //let cmmId1 = cmm_commentId;
+        console.log("updateForm"+cmm_commentId);
+        $.ajax({
+            type: "get",
+            url: "/comment/updateComment",
+            data: {
+                cmm_commentId: cmm_commentId
+            },
+            dataType: "json",
+            success: function(commentDTO) {
+                // 댓글 내용을 수정 입력창에 설정
+                document.getElementById('cmm_text').value = commentDTO.cmm_text;
+                // 수정할 댓글 ID를 hidden input에 설정
+                document.getElementById('user__name').value = commentDTO.cmm_commentId;
+            },
+            error: function() {
+                console.log("댓글 정보 가져오기 실패");
+            }
+        });
+    }
     const commentUpdate = (cmm_commentId) => {
-        <%--const post_id = '${board.post_id}';--%>
-        // location.href = "/board/updateComment?id=" + post_id + "&cmm_commentId=" + cmm_commentId;
-        //let cmmId = prompt("수정할 댓글 번호를 입력하세요")
-
-        // document.getElementById('cmm_writer').value='';
-        // document.getElementById('cmm_text').value='';
-        <%--const commentId = '${comment.cmm_commentId}';--%>
-        //const writer = document.getElementById("cmm_writer").value;
         let cmmId = cmm_commentId;
+        console.log("update"+cmmId);
         const writer = '${userPk}';
         const text = document.getElementById("cmm_text").value;
         const postId = '${board.post_id}';
@@ -312,34 +343,53 @@
                 success: function(commentList) {
                     console.log("댓글 수정 성공");
                     console.log(commentList);
-                    let output = "<table>";
-                    output += "<tr><th>댓글번호</th>";
-                    output += "<th>작성자</th>";
-                    output += "<th>내용</th>";
-                    output += "<th>작성시간</th></tr>";
-                    for(let i in commentList){
-                        output += "<tr>";
-                        output += "<td>"+commentList[i].cmm_commentId+"</td>";
-                        output += "<td>"+commentList[i].cmm_writer+"</td>";
-                        output += "<td>"+commentList[i].cmm_text+"</td>";
-                        output += "<td>"+commentList[i].cmm_commentDate+"</td>";
-                        output += "</tr>";
-                    }
-                    output += "</table>";
-                    document.getElementById('comment-list').innerHTML = output;
-                    document.getElementById('cmm_writer').value='';
-                    document.getElementById('cmm_text').value='';
+                    let formatter = new Intl.DateTimeFormat('ko-KR',{
+                        year: 'numeric',
+                        month: '2-digit',
+                        day: '2-digit',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                    });
+
+                    let output = "";
+                    output += '<div id="comment__item" class="comment__item">';
+                    commentList.forEach(comment => {
+                        console.log(comment.cmm_commentDate);
+                        let date = new Date(comment.cmm_commentDate);
+                        let formattedDate = formatter.format(date);
+                        console.log(formattedDate);
+                        output += '<div id="user">';
+                        output += '<div class="comment-contents">';
+                        output += '<div class="user__top">';
+                        output += '<ul>';
+                        output += '<li class="user__name">' + comment.cmm_writer + '</li>';
+                        output += '</ul>';
+                        output += '</div>';
+                        output += '<div class="user__commentDate">' + formattedDate + '</div>';
+                        output += '<div class="user__comment">' + comment.cmm_text + '</div>';
+                        output += '</div>'
+                        if(writer == comment.cmm_writer) {
+                            output += '<div class="commentBtn">';
+                            output += '<i class=\'bx bxs-edit-alt commentBtnIcon\' onClick="commentUpdateForm('+comment.cmm_commentId+')"></i>'
+                            output += '<i class=\'bx bxs-trash commentBtnIcon\' onClick="commentDelete('+comment.cmm_commentId+')"></i>'
+                        }
+                        output += '</div>';
+                        output += '</div>';
+                    });
+                    document.location.reload('user');
+                    document.getElementById('user').innerHTML = output;
+                    document.getElementById('cmm_text').value = ''; // Reset textarea after posting
                 },
-                error: function() {
-                    console.log("실패");
-                }
+            error: function() {
+                console.log("실패");
             }
-        );
+        });
     }
     const commentDelete = (cmm_commentId) => {
         //let cmmId = prompt("삭제할 댓글 번호를 입력하세요")
         let cmmId = cmm_commentId;
         const postId = '${board.post_id}';
+        const writer = '${userPk}';
         $.ajax({
                 type: "post",
                 url: "/comment/deleteComment",
@@ -351,25 +401,41 @@
                 success: function(commentList) {
                     console.log("댓글 삭제 성공");
                     console.log(commentList);
-                    let output = "";
-                    commentList.forEach(comment => {
-                        output += `
-                            <div id="user">
-                                <div class="comment-contents">
-                                    <div class="user__top">
-                                        <ul>
-                                            <li class="user__name">${comment.cmm_writer}</li>
-                                        </ul>
-                                    </div>
-                                    <div class="user__commentDate">${comment.cmm_commentDate}</div>
-                                    <div class="user__comment">${comment.cmm_text}</div>
-                                </div>
-            <%--                    ${comment.cmm_writer == writer ? `<div class="commentBtn">--%>
-            <%--                        <i class='bx bxs-edit-alt commentBtnIcon' onclick="commentUpdate(${comment.cmm_commentId})"></i>--%>
-            <%--                        <i class='bx bxs-trash commentBtnIcon' onclick="commentDelete(${comment.cmm_commentId})"></i>--%>
-            <%--                    </div>` : ''}--%>
-                            </div>`;
+
+                    let formatter = new Intl.DateTimeFormat('ko-KR',{
+                        year: 'numeric',
+                        month: '2-digit',
+                        day: '2-digit',
+                        hour: '2-digit',
+                        minute: '2-digit',
                     });
+
+                    let output = "";
+                    output += '<div id="comment__item" class="comment__item">';
+                    commentList.forEach(comment => {
+                        console.log(comment.cmm_commentDate);
+                        let date = new Date(comment.cmm_commentDate);
+                        let formattedDate = formatter.format(date);
+                        console.log(formattedDate);
+                        output += '<div id="user">';
+                        output += '<div class="comment-contents">';
+                        output += '<div class="user__top">';
+                        output += '<ul>';
+                        output += '<li class="user__name">' + comment.cmm_writer + '</li>';
+                        output += '</ul>';
+                        output += '</div>';
+                        output += '<div class="user__commentDate">' + formattedDate + '</div>';
+                        output += '<div class="user__comment">' + comment.cmm_text + '</div>';
+                        output += '</div>'
+                        if(writer == comment.cmm_writer) {
+                            output += '<div class="commentBtn">';
+                            output += '<i class=\'bx bxs-edit-alt commentBtnIcon\' onClick="commentUpdateForm('+comment.cmm_commentId+')"></i>'
+                            output += '<i class=\'bx bxs-trash commentBtnIcon\' onClick="commentDelete('+comment.cmm_commentId+')"></i>'
+                        }
+                        output += '</div>';
+                        output += '</div>';
+                    });
+                    document.location.reload('user');
                     document.getElementById('user').innerHTML = output;
                     document.getElementById('cmm_text').value = ''; // Reset textarea after posting
                 },

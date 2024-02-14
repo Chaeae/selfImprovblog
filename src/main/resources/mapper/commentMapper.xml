@@ -18,7 +18,7 @@
 
     <update id="updateComment" parameterType="comment">
         update comment_table set cmm_writer=#{cmm_writer}, cmm_text=#{cmm_text}
-        where (cmm_postId=#{cmm_postId}) AND cmm_commentId=#{cmm_commentId}
+        where () AND cmm_commentId=#{cmm_commentId}
     </update>
 
     <delete id="deleteComment" parameterType="Long">

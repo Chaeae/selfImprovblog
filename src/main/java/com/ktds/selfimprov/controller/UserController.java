@@ -90,25 +90,25 @@ public class UserController {
 
     }
 
-    @PostMapping("/logout")
+    @GetMapping("/logout")
     public String logout(HttpServletRequest request, HttpServletResponse response) {
         // 쿠키 배열을 가져옵니다.
+        System.out.println("logout진입");
         Cookie[] cookies = request.getCookies();
 
-        if (cookies != null) {
-            for (Cookie cookie : cookies) {
-                if ("user_ID".equals(cookie.getName())) {
-                    cookie.setValue(""); // 쿠키 값을 비움
-                    cookie.setPath("/"); // 쿠키 경로를 설정
-                    cookie.setMaxAge(0); // 쿠키 유효 시간을 0으로 설정하여 즉시 삭제
-                    response.addCookie(cookie); // 변경된 쿠키 정보를 응답에 추가
-                }
-                if ("user_Pk".equals(cookie.getName())) {
-                    cookie.setValue("");
-                    cookie.setPath("/");
-                    cookie.setMaxAge(0);
-                    response.addCookie(cookie);
-                }
+        for (Cookie cookie : cookies) {
+            System.out.println("for문 진입");
+            if ("user_ID".equals(cookie.getName())) {
+                cookie.setValue(""); // 쿠키 값을 비움
+                cookie.setPath("/"); // 쿠키 경로를 설정
+                cookie.setMaxAge(0); // 쿠키 유효 시간을 0으로 설정하여 즉시 삭제
+                response.addCookie(cookie); // 변경된 쿠키 정보를 응답에 추가
+            }
+            if ("user_Pk".equals(cookie.getName())) {
+                cookie.setValue("");
+                cookie.setPath("/");
+                cookie.setMaxAge(0);
+                response.addCookie(cookie);
             }
         }
 

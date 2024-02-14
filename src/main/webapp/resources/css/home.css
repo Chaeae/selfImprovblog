@@ -148,10 +148,10 @@ header .image-text .header-text .Blog{
 }
 
 .sidebar .menu-bar{
-    height:calc(100% - 50px);
+    height:calc(100% - 100px);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
 }
 
 .sidebar .menu-bar .circle{
@@ -332,39 +332,8 @@ header .image-text .header-text .Blog{
 footer{
     height: 50px;
     position: relative;
+    margin-left: 200px;
+    background: #E1306C;
     transform: translateY(-100%);
 }
-/*!* 조회: 6 *!*/
-
-/*position: absolute;*/
-/*width: 48px;*/
-/*height: 35px;*/
-/*left: 1166px;*/
-/*top: 442px;*/
-
-/*font-family: 'Inter';*/
-/*font-style: normal;*/
-/*font-weight: 300;*/
-/*font-size: 16px;*/
-/*line-height: 19px;*/
-
-/*color: #524F4F;*/
-
-
-
-/*!* 좋아요: 3 *!*/
-
-/*position: absolute;*/
-/*width: 96px;*/
-/*height: 35px;*/
-/*left: 1228px;*/
-/*top: 442px;*/
-
-/*font-family: 'Inter';*/
-/*font-style: normal;*/
-/*font-weight: 300;*/
-/*font-size: 16px;*/
-/*line-height: 19px;*/
-
-/*color: #524F4F;*/
 

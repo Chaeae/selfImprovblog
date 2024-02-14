@@ -44,22 +44,22 @@
         <div class="wrap">
             <div class="intro_bg">
                 <div class ="header">
-                    <div id="logo">
-                        <img src="/resources/image/improvLogo.png" width="81px" height="86px">
-                    </div>
-                    <%--                <div class="searchArea">--%>
-                    <%--                    <form>--%>
-                    <%--                        <input type="search" placeholder="Search">--%>
-                    <%--&lt;%&ndash;                        <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">&ndash;%&gt;--%>
-                    <%--                        <span>검색</span>--%>
-                    <%--                    </form>--%>
-                    <%--                </div>--%>
-                    <ul class="upperNav">
-                        <li><a href="#">인문학</a></li>
-                        <li><a href="#">철학</a></li>
-                        <li><a href="#">IT</a></li>
-                        <li><a href="#">언어</a></li>
-                    </ul>
+<%--                    <div id="logo">--%>
+<%--                        <img src="/resources/image/improvLogo.png" width="81px" height="86px">--%>
+<%--                    </div>--%>
+<%--                    &lt;%&ndash;                <div class="searchArea">&ndash;%&gt;--%>
+<%--                    &lt;%&ndash;                    <form>&ndash;%&gt;--%>
+<%--                    &lt;%&ndash;                        <input type="search" placeholder="Search">&ndash;%&gt;--%>
+<%--                    &lt;%&ndash;&lt;%&ndash;                        <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">&ndash;%&gt;&ndash;%&gt;--%>
+<%--                    &lt;%&ndash;                        <span>검색</span>&ndash;%&gt;--%>
+<%--                    &lt;%&ndash;                    </form>&ndash;%&gt;--%>
+<%--                    &lt;%&ndash;                </div>&ndash;%&gt;--%>
+<%--                    <ul class="upperNav">--%>
+<%--                        <li><a href="#">인문학</a></li>--%>
+<%--                        <li><a href="#">철학</a></li>--%>
+<%--                        <li><a href="#">IT</a></li>--%>
+<%--                        <li><a href="#">언어</a></li>--%>
+<%--                    </ul>--%>
 
                 </div>
             </div>
@@ -80,7 +80,7 @@
             <div class="menu-bar">
                 <div class="menu">
                     <div class="circle">
-                        <img class="profile" src="/resources/image/profileImg.jpg" alt="profile">
+                        <img class="profile" src="/resources/image/free-icon-user.png" alt="profile">
                     </div>
                     <div class="confirm">
                         <% if (userId != null) { %>
@@ -108,7 +108,7 @@
                 </div>
 
                 <div class="bottom-content">
-                    <li class="">
+                    <li class="nav-link">
                         <a href="/user/logout">
                             <i class='bx bx-log-out icon'></i>
                             <span class="text nav-text">로그아웃</span>

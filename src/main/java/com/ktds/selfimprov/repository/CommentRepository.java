@@ -21,8 +21,8 @@ public class CommentRepository {
         return sql.selectList("Comment.findAll", cmm_postId);
     }
 
-    public CommentDTO findById(Long cmm_postId) {
-        return sql.selectOne("Comment.findById", cmm_postId);
+    public CommentDTO findById(Long cmm_commentId) {
+        return sql.selectOne("Comment.findById", cmm_commentId);
     }
 
     public void updateComment(CommentDTO commentDTO) { sql.update("Comment.updateComment", commentDTO);
