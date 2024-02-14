@@ -84,7 +84,7 @@
             <div class="menu-bar">
                 <div class="menu">
                     <div class="circle">
-                        <img class="profile" src="/resources/image/profileImg.jpg" alt="profile">
+                        <img class="profile" src="/resources/image/free-icon-user.png" alt="profile">
                     </div>
                     <div class="confirm">
                         <% if (userId != null) { %>
@@ -173,7 +173,7 @@
                             </h2>
 
                             <div class="write__comment">
-                                <span>작성자: <%= userId%></span>
+<%--                                <span>작성자: <%= userId%></span>--%>
                                 <textarea id="cmm_text" cols="105" rows="5" placeholder="내용을 입력하세요"></textarea>
                                 <button id="comment-write-btn" onclick="commentWrite()">댓글작성</button>
 

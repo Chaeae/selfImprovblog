@@ -151,7 +151,6 @@ header .image-text .header-text .Blog{
     height:calc(100% - 50px);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 .sidebar .menu-bar .circle{

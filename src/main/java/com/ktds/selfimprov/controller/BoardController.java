@@ -43,7 +43,7 @@ public class BoardController {
         }
     }
 
-    @GetMapping("/")
+    @GetMapping("/")    // /board/
     public String findAll(Model model) {
         System.out.println("homeFindAll진입");
         List<BoardDTO> boardDTOList = boardService.findAll();
@@ -51,7 +51,7 @@ public class BoardController {
         return "list";
     }
 
-    @GetMapping
+    @GetMapping // /board?id=1&page=1
     public String findById(@RequestParam("id") Long post_id,
                            @RequestParam(value = "page", required = false, defaultValue = "1") int page,
                            Model model) {

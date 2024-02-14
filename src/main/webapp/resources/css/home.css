@@ -237,7 +237,9 @@ header .image-text .header-text .Blog{
 .ele{
     display: flex;
 }
-
+.contentBox .commentBtn{
+    margin-left: 800px;
+}
 .contentBox .subbox1{
     /*display: inline;*/
     position: relative;
@@ -248,6 +250,7 @@ header .image-text .header-text .Blog{
     min-width: 250px;
     border-radius: 10px;
 
+
 }
 
 .contentBox .subbox1 .boardImg{
@@ -257,6 +260,7 @@ header .image-text .header-text .Blog{
     height: 100%;
     min-width: 250px;
     border-radius: 10px;
+    opacity: 0.7;
 }
 
 .contentBox .subbox2{
@@ -274,6 +278,7 @@ header .image-text .header-text .Blog{
 }
 
 .contentBox .subbox2 .writerID{
+    display: none;
     position: absolute;
     left:10px;
     top: 10px;

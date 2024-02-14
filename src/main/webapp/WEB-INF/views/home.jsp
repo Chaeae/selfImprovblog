@@ -130,7 +130,7 @@
                         <div class="ele" onclick="location.href='/board?id=${board.post_id}';">
                             <div class ="contentBox">
                                 <div class="subbox1">
-                                    <img class="boardImg" src="" alt="">
+                                    <img class="boardImg" src="/resources/image/none.png" alt="">
                                 </div>
                                 <div class="subbox2">
                                     <span class="date">

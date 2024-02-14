@@ -81,7 +81,7 @@
         <div class="menu-bar">
             <div class="menu">
                 <div class="circle">
-                    <img class="profile" src="/resources/image/profileImg.jpg" alt="profile">
+                    <img class="profile" src="/resources/image/free-icon-user.png" alt="profile">
                 </div>
                 <div class="confirm">
                     <% if (userId != null) { %>
@@ -125,7 +125,7 @@
         <div class="board_title">
             <strong>새 글 작성</strong>
         </div>
-        <form action="/board/save" method="post">
+        <form id='frm' action="/board/save" method="post">
             <div class="board_write_wrap">
                 <div class="board_write">
                     <div class="title">
@@ -152,8 +152,9 @@
                 </div>
                 <div class="bt_wrap">
                     <%--                    <a href="detail.jsp">작성</a>--%>
-                    <dd><input type="submit" value="작성" class="on"></dd>
+<%--                    <dd><input type="submit" value="작성" class="on"></dd>--%>
                     <%--                    <input type="submit" value="등록" class="on">--%>
+                        <a href="javascript:void(0);" onclick="document.forms['frm'].submit();">작성</a>
                     <a href="home.jsp">취소</a>
                 </div>
             </div>

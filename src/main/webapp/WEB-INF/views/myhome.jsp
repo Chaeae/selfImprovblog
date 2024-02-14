@@ -82,7 +82,7 @@
         <div class="menu-bar">
             <div class="menu">
                 <div class="circle">
-                    <img class="profile" src="/resources/image/profileImg.jpg" alt="profile">
+                    <img class="profile" src="/resources/image/free-icon-user.png" alt="profile">
                 </div>
                 <div class="confirm">
                     <% if (userId != null) { %>
@@ -133,7 +133,7 @@
                     <div class="ele" onclick="location.href='/board?id=${board.post_id}';">
                         <div class ="contentBox">
                             <div class="subbox1">
-                                <img class="boardImg" src="" alt="">
+                                <img class="boardImg" src="/resources/image/none.png" alt="">
                             </div>
                             <div class="subbox2">
                                     <span class="date">
