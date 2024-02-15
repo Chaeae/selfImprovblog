@@ -14,6 +14,7 @@
         <th>작성일</th>
         <th>조회수</th>
     </tr>
+
     <c:forEach items="${boardList}" var="board">
         <tr>
             <td>${board.post_id}</td>

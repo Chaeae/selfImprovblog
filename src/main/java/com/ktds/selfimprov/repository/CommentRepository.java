@@ -1,5 +1,6 @@
 package com.ktds.selfimprov.repository;
 
+import com.ktds.selfimprov.dto.BoardDTO;
 import com.ktds.selfimprov.dto.CommentDTO;
 import lombok.RequiredArgsConstructor;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -16,7 +17,17 @@ public class CommentRepository {
         sql.insert("Comment.save", commentDTO);
     }
 
-    public List<CommentDTO> findAll(Long post_id) {
-        return sql.selectList("Comment.findAll", post_id);
+    public List<CommentDTO> findAll(Long cmm_postId) {
+        return sql.selectList("Comment.findAll", cmm_postId);
+    }
+
+    public CommentDTO findById(Long cmm_commentId) {
+        return sql.selectOne("Comment.findById", cmm_commentId);
+    }
+
+    public void updateComment(CommentDTO commentDTO) { sql.update("Comment.updateComment", commentDTO);
+    }
+
+    public void delete(Long cmm_commentId) {sql.delete("Comment.deleteComment", cmm_commentId);
     }
 }

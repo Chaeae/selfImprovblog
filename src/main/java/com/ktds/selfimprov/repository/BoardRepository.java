@@ -27,7 +27,8 @@ public class BoardRepository {
     public BoardDTO findById(Long post_id) {
         return sql.selectOne("Board.findById", post_id);
     }
-
+    public List<BoardDTO> findByUserId(Long post_author) {return sql.selectList("Board.findByUserId", post_author);
+    }
     public void delete(Long post_id) {
         sql.delete("Board.delete", post_id);
     }
@@ -43,4 +44,6 @@ public class BoardRepository {
     public int boardCount() {
         return sql.selectOne("Board.boardCount");
     }
+
+
 }
