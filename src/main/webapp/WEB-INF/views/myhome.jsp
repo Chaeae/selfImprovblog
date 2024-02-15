@@ -45,22 +45,22 @@
     <div class="wrap">
         <div class="intro_bg">
             <div class ="header">
-                <div id="logo">
-                    <img src="/resources/image/improvLogo.png" width="81px" height="86px">
-                </div>
-                <%--                <div class="searchArea">--%>
-                <%--                    <form>--%>
-                <%--                        <input type="search" placeholder="Search">--%>
-                <%--&lt;%&ndash;                        <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">&ndash;%&gt;--%>
-                <%--                        <span>검색</span>--%>
-                <%--                    </form>--%>
-                <%--                </div>--%>
-                <ul class="upperNav">
-                    <li><a href="#">인문학</a></li>
-                    <li><a href="#">철학</a></li>
-                    <li><a href="#">IT</a></li>
-                    <li><a href="#">언어</a></li>
-                </ul>
+<%--                <div id="logo">--%>
+<%--                    <img src="/resources/image/improvLogo.png" width="81px" height="86px">--%>
+<%--                </div>--%>
+<%--                &lt;%&ndash;                <div class="searchArea">&ndash;%&gt;--%>
+<%--                &lt;%&ndash;                    <form>&ndash;%&gt;--%>
+<%--                &lt;%&ndash;                        <input type="search" placeholder="Search">&ndash;%&gt;--%>
+<%--                &lt;%&ndash;&lt;%&ndash;                        <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">&ndash;%&gt;&ndash;%&gt;--%>
+<%--                &lt;%&ndash;                        <span>검색</span>&ndash;%&gt;--%>
+<%--                &lt;%&ndash;                    </form>&ndash;%&gt;--%>
+<%--                &lt;%&ndash;                </div>&ndash;%&gt;--%>
+<%--                <ul class="upperNav">--%>
+<%--                    <li><a href="#">인문학</a></li>--%>
+<%--                    <li><a href="#">철학</a></li>--%>
+<%--                    <li><a href="#">IT</a></li>--%>
+<%--                    <li><a href="#">언어</a></li>--%>
+<%--                </ul>--%>
 
             </div>
         </div>
@@ -91,14 +91,14 @@
                     게스트님 안녕하세요
                     <% } %>
                 </div>
-                <ul class="menu-links">
-                    <li class="nav-link">
-                        <a href="/board/home/myhome">
-                            <i class='bx bx-home icon'></i>
-                            <span class="text nav-text">마이 홈</span>
-                        </a>
-                    </li>
-                </ul>
+<%--                <ul class="menu-links">--%>
+<%--                    <li class="nav-link">--%>
+<%--                        <a href="/board/home/myhome">--%>
+<%--                            <i class='bx bx-home icon'></i>--%>
+<%--                            <span class="text nav-text">마이 홈</span>--%>
+<%--                        </a>--%>
+<%--                    </li>--%>
+<%--                </ul>--%>
                 <ul class="menu-links">
                     <li class="nav-link">
                         <a href="/board/save">
@@ -124,8 +124,9 @@
     <div>
         <div class="box">
             <li class ="contentSearch">
-                <i class='bx bx-search iconSearch'></i>
-                <input type="search" placeholder="Search">
+<%--                <i class='bx bx-search iconSearch'></i>--%>
+<%--                <input type="search" placeholder="Search">--%>
+                <p>MyHome</p>
             </li>
             <div class="container">
                 <c:forEach items="${boardList}" var="board">
@@ -133,7 +134,7 @@
                     <div class="ele" onclick="location.href='/board?id=${board.post_id}';">
                         <div class ="contentBox">
                             <div class="subbox1">
-                                <img class="boardImg" src="/resources/image/none.png" alt="">
+                                <img class="boardImg" src="/resources/image/bookImg.jpg" alt="">
                             </div>
                             <div class="subbox2">
                                     <span class="date">

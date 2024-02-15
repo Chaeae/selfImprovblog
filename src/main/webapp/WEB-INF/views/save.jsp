@@ -141,8 +141,9 @@
                             <dd><p><%= userId %></p></dd>
                         </dl>
                         <dl>
-                            <dt>카테고리</dt>
-                            <dd><input type="text" name="post_categoryId" placeholder="카테고리 아이디"></dd>
+<%--                            <dt>카테고리</dt>--%>
+                            <dd><input type="hidden" name="post_categoryId" value="<%=1%>" placeholder="카테고리 아이디"></dd>--%>
+<%--                            <dd><input type="text" name="post_categoryId" placeholder="카테고리 아이디"></dd>--%>
                         </dl>
 
                     </div>

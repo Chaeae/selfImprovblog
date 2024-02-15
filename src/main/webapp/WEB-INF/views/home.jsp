@@ -121,16 +121,16 @@
         </nav>
         <div>
             <div class="box">
-                <li class ="contentSearch">
-                    <i class='bx bx-search iconSearch'></i>
-                    <input type="search" placeholder="Search">
-                </li>
+<%--                <li class ="contentSearch">--%>
+<%--                    <i class='bx bx-search iconSearch'></i>--%>
+<%--                    <input type="search" placeholder="Search">--%>
+<%--                </li>--%>
                 <div class="container">
                     <c:forEach items="${boardList}" var="board">
                         <div class="ele" onclick="location.href='/board?id=${board.post_id}';">
                             <div class ="contentBox">
                                 <div class="subbox1">
-                                    <img class="boardImg" src="/resources/image/none.png" alt="">
+                                    <img class="boardImg" src="/resources/image/bookImg.jpg" alt="">
                                 </div>
                                 <div class="subbox2">
                                     <span class="date">

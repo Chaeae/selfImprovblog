@@ -201,8 +201,8 @@
                                         </div>
                                         <c:if test="${comment.cmm_writer == userPk}">
                                             <div class="commentBtn">
-                                                <i class='bx bxs-edit-alt commentBtnIcon'
-                                                   onclick="commentUpdateForm(${comment.cmm_commentId})"></i>
+<%--                                                <i class='bx bxs-edit-alt commentBtnIcon'--%>
+<%--                                                   onclick="commentUpdateForm(${comment.cmm_commentId})"></i>--%>
                                                 <i class='bx bxs-trash commentBtnIcon'
                                                    onclick="commentDelete(${comment.cmm_commentId})"></i>
                                             </div>
@@ -284,7 +284,7 @@
                     output += '</div>'
                     if (writer == comment.cmm_writer) {
                         output += '<div class="commentBtn">';
-                        output += '<i class=\'bx bxs-edit-alt commentBtnIcon\' onClick="commentUpdateForm(' + comment.cmm_commentId + ')"></i>'
+                        // output += '<i class=\'bx bxs-edit-alt commentBtnIcon\' onClick="commentUpdateForm(' + comment.cmm_commentId + ')"></i>'
                         output += '<i class=\'bx bxs-trash commentBtnIcon\' onClick="commentDelete(' + comment.cmm_commentId + ')"></i>'
                     }
                     output += '</div>';
@@ -370,7 +370,7 @@
                     output += '</div>'
                     if (writer == comment.cmm_writer) {
                         output += '<div class="commentBtn">';
-                        output += '<i class=\'bx bxs-edit-alt commentBtnIcon\' onClick="commentUpdateForm(' + comment.cmm_commentId + ')"></i>'
+                        // output += '<i class=\'bx bxs-edit-alt commentBtnIcon\' onClick="commentUpdateForm(' + comment.cmm_commentId + ')"></i>'
                         output += '<i class=\'bx bxs-trash commentBtnIcon\' onClick="commentDelete(' + comment.cmm_commentId + ')"></i>'
                     }
                     output += '</div>';
@@ -429,7 +429,7 @@
                     output += '</div>'
                     if (writer == comment.cmm_writer) {
                         output += '<div class="commentBtn">';
-                        output += '<i class=\'bx bxs-edit-alt commentBtnIcon\' onClick="commentUpdateForm(' + comment.cmm_commentId + ')"></i>'
+                        // output += '<i class=\'bx bxs-edit-alt commentBtnIcon\' onClick="commentUpdateForm(' + comment.cmm_commentId + ')"></i>'
                         output += '<i class=\'bx bxs-trash commentBtnIcon\' onClick="commentDelete(' + comment.cmm_commentId + ')"></i>'
                     }
                     output += '</div>';
